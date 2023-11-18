@@ -1,0 +1,383 @@
+{
+    Floor1 = {
+        Pod1 = {
+            Hive1 = {
+                Bees = {
+                    [ 0 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 1 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 2 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 3 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 4 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                },
+                Upgrades = {
+                    [ 0 ] = "Gamma",
+                    [ 1 ] = "Block",
+                }
+            },
+            Hive2 = {
+                Bees = {
+                    [ 0 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 1 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 2 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 3 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 4 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                },
+                Upgrades = {
+                    [ 0 ] = "Gamma",
+                    [ 1 ] = "Block",
+                }
+            },
+            Hive3 = {
+                Bees = {
+                    [ 0 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 1 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 2 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 3 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 4 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                },
+                Upgrades = {
+                    [ 0 ] = "Gamma",
+                    [ 1 ] = "Block",
+                }
+            },
+            Hive4 = {
+                Bees = {
+                    [ 0 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 1 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 2 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 3 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 4 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                },
+                Upgrades = {
+                    [ 0 ] = "Gamma",
+                    [ 1 ] = "Block",
+                }
+            },
+            Hive5 = {
+                Bees = {
+                    [ 0 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 1 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 2 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 3 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 4 ] = {
+                        Name = "Oily Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                },
+                Upgrades = {
+                    [ 0 ] = "Gamma",
+                    [ 1 ] = "Block",
+                }
+            },
+        },
+        Pod2 = {
+            Hive1 = {
+                Bees = {
+                    [ 0 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 1 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 2 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 3 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 4 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                },
+                Upgrades = {
+                    [ 0 ] = "Gamma",
+                }
+            },
+            Hive2 = {
+                Bees = {
+                    [ 0 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 1 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 2 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 3 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 4 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                },
+                Upgrades = {
+                    [ 0 ] = "Gamma",
+                }
+            },
+            Hive3 = {
+                Bees = {
+                    [ 0 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 1 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 2 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 3 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 4 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                },
+                Upgrades = {
+                    [ 0 ] = "Gamma",
+                }
+            },
+            Hive4 = {
+                Bees = {
+                    [ 0 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 1 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 2 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 3 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 4 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                },
+                Upgrades = {
+                    [ 0 ] = "Gamma",
+                }
+            },
+            Hive5 = {
+                Bees = {
+                    [ 0 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 1 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 2 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 3 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                    [ 4 ] = {
+                        Name = "Emerald Bee",
+                        Endurance = 2,
+                        Productivity = 2,
+                        Health = 15,
+                    },
+                },
+                Upgrades = {
+                    [ 0 ] = "Gamma",
+                }
+            },
+        },
+    }
+}
