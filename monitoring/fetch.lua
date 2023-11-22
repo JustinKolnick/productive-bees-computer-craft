@@ -97,9 +97,9 @@ function init()
     local outputFile = io.open('stored','w')
     outputFile:write(textutils.serialize(output))
     outputFile:close()
+
+    -- send it to the main display computer(s)
+    rednet.send(6, output)
 end
 
 init()
-
-
-
