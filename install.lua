@@ -69,7 +69,7 @@ local function download(url, file)
 end
  
 if not json then
-    download("https://raw.githubusercontent.com/JustinKolnick/productive-bees-computer-craft/main/utils/json","json")
+    shell.run("wget", "https://raw.githubusercontent.com/JustinKolnick/productive-bees-computer-craft/main/utils/json")
     os.loadAPI("json")
 end
  
