@@ -81,10 +81,10 @@ function init()
 
     for p=1,PodsPerRow do
         print("pod: " .. p)
-        output["Floor1"]["Pod " .. p] = {}
+        output["Floor1"]["Pod" .. p] = {}
         for i=1,HivesPerPod do
             print("hive: " .. i)
-            output["Floor1"]["Pod " .. p]["Hive " .. i] = fetchHiveData()
+            output["Floor1"]["Pod" .. p]["Hive" .. i] = fetchHiveData()
             turtle.forward()
         end
 
