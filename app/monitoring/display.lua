@@ -1447,7 +1447,9 @@ function init()
     -- set dimensions and stuff
 
     while true do
+        print("waiting for message...")
         local id, table = rednet.receive()
+        print("refreshing display...")
 
         local keyset={}
         local n=0
