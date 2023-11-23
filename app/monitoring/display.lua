@@ -59,7 +59,7 @@ function createPods(table)
         }
     end
     
-    return createPod(table["Floor1"]["Pod 1"])
+    return createPod(table["Floor1"]["Pod1"])
 end
 
 function init()
