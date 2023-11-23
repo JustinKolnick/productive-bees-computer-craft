@@ -1479,12 +1479,15 @@ function init()
 
 
         monitor.setBackgroundColor(colors.black)
+
+        
+        local c = colonyBuilder.build(table)
         local name = c[1][1]:getName()
         local health = "Health: " .. c[1][1]:getTotalHealth()
         local endur = "End: " .. c[1][1]:getTotalEndurance()
         local produc = "Prod: " .. c[1][1]:getTotalProductivity()
         local _, length = longestString({name, health, endur, produc})
-        local c = colonyBuilder.build(table)
+        
         monitor.write(name)
         monitor.setCursorPos(1, 2)
         monitor.write(health)
