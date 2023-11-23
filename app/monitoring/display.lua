@@ -1444,10 +1444,8 @@ function longestString(strs)
     local maxLen = 0
     local longestStr = ""
     for k, v in ipairs(strs) do
-        print(k)
-        print(v)
-        if v.len() > maxLen then
-            maxLen = v.len()
+        if string.len(v) > maxLen then
+            maxLen = string.len(v)
             longestStr = v
         end
     end
@@ -1479,9 +1477,7 @@ function init()
         monitor.setTextScale(0.9)
         monitor.setCursorPos(1, 1)
 
-
         monitor.setBackgroundColor(colors.black)
-
         
         local c = colonyBuilder.build(table)
         local name = c[1][1]:getName()
