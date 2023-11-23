@@ -1440,6 +1440,18 @@ function tprint (tbl, indent)
     return toprint
 end
 
+function longestString(strs)
+    local maxLen = 0
+    local longestStr = ""
+    for k, v in pairs(strs) do
+        if v.len() > maxLen then
+            maxLen = v.len()
+            longestStr = v
+        end
+    end
+    return longestStr, maxLen
+end
+
 function init()
     -- loop infinitely, checking for messages
 
@@ -1458,7 +1470,7 @@ function init()
             n=n+1
             keyset[n]=k
         end
-        monitor.setBackgroundColor(colors.black)
+        monitor.setBackgroundColor(colors.lightGray)
         monitor.clear()
         
         local w, h = monitor.getSize()
@@ -1466,15 +1478,20 @@ function init()
         monitor.setCursorPos(1, 1)
 
 
-        monitor.setBackgroundColor(colors.lime)
+        monitor.setBackgroundColor(colors.black)
+        local name = c[1][1]:getName()
+        local health = "Health: " .. c[1][1]:getTotalHealth()
+        local endur = "End: " .. c[1][1]:getTotalEndurance()
+        local produc = "Prod: " .. c[1][1]:getTotalProductivity()
+        local _, length = longestString({name, health, endur, produc})
         local c = colonyBuilder.build(table)
-        monitor.write(c[1][1]:getName())
+        monitor.write(name)
         monitor.setCursorPos(1, 2)
-        monitor.write("Health: " .. c[1][1]:getTotalHealth())
+        monitor.write(health)
         monitor.setCursorPos(1, 3)
-        monitor.write("End: " .. c[1][1]:getTotalEndurance())
+        monitor.write(endur)
         monitor.setCursorPos(1, 4)
-        monitor.write("Prod: " .. c[1][1]:getTotalProductivity())
+        monitor.write(produc)
     end
 end
 
