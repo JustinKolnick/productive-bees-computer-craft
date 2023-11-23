@@ -1458,10 +1458,15 @@ function init()
             n=n+1
             keyset[n]=k
         end
-
+        monitor.setBackgroundColor(colors.black)
         monitor.clear()
+        
+        local w, h = monitor.getSize()
+        monitor.setTextScale(0.9)
         monitor.setCursorPos(1, 1)
 
+
+        monitor.setBackgroundColor(colors.lime)
         local c = colonyBuilder.build(table)
         monitor.write(c[1][1]:getName())
         monitor.setCursorPos(1, 2)
