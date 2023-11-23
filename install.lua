@@ -46,13 +46,16 @@ local args = {...}
  
 args[1] = preset.user or args[1]
 args[2] = preset.repo or args[2]
-args[3] = preset.branch or args[3] or "master"
+args[3] = preset.branch or args[3] or "main"
 args[4] = preset.path or args[4] or ""
  
 if #args < 2 then
         print("Usage:\n"..((shell and shell.getRunningProgram()) or "gitget").." <user> <repo> [branch/tree] [path]") error()
 end
- 
+
+-- added this to delete the current version of the app, I'm not seeing immediately changes on install so it's either cc caching things or github caching things.
+fs.delete('pbcc')
+
 local function save(data,file)
     local file = shell.resolve(file:gsub("%%20"," "))
     if not (fs.exists(string.sub(file,1,#file - #fs.getName(file))) and fs.isDir(string.sub(file,1,#file - #fs.getName(file)))) then
