@@ -1460,26 +1460,23 @@ function init()
         monitor.clear()
         monitor.setCursorPos(1, 1)
 
-        p = createPods(table)
-        monitor.write(p.name)
+        local c = colonyBuilder.build(table)
+        monitor.write("??? Bees")
         monitor.setCursorPos(1, 2)
-        monitor.write("Bee Count: " .. p.beeCount)
+        monitor.write("Total Health: " .. c[1][1]:getTotalHealth())
         monitor.setCursorPos(1, 3)
-        monitor.write("Total Health: " .. p.totalHealth)
+        monitor.write("Total Endurance: " .. c[1][1]:getTotalEndurance())
         monitor.setCursorPos(1, 4)
-        monitor.write("Total Endurance: " .. p.totalEndurance)
-        monitor.setCursorPos(1, 5)
-        monitor.write("Total Productivity: " .. p.totalProductivity)
-        monitor.setCursorPos(1, 6)
+        monitor.write("Total Productivity: " .. c[1][1]:getTotalProductivity())
     end
 end
 
---init()
+init()
 
-function test()
-    local c = colonyBuilder.build(stored)
-    print(c[1][1]:getTotalHealth()) -- still fails sometimes because we don't always get a hive with bees, need to fix missing key
-end
+-- function test()
+--     local c = colonyBuilder.build(stored)
+--     print(c[1][1]:getTotalHealth()) -- still fails sometimes because we don't always get a hive with bees, need to fix missing key
+-- end
 
 
-test()
+-- test()
