@@ -8,6 +8,38 @@ function Pod.new(args)
     return self
 end
 
+function Pod:getName()
+    if self.name then return self.name end
+    local names = {}
+    for k, v in pairs(self.hives) do
+        if names[v:getName()] == nil then
+            names[v:getName()] = 1
+        else
+            names[v:getName()] = names[v:getName()] + 1
+        end
+    end
+
+    maxName = ""
+    max = 0
+    count = 0
+
+    for k, v in pairs(names) do
+        count = count + 1
+        if v > max then
+            maxName = k
+            max = v
+        end
+    end
+
+    local name = maxName
+    if count > 1 then
+        name = name .. "*"
+    end
+
+    self.name = name
+    return self.name
+end
+
 function Pod:getTotalHealth()
     
     -- check if cached is nil, if so used true, other wise use false

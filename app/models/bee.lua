@@ -11,6 +11,10 @@ function Bee.new(args)
     return self
 end
 
+function Bee:getName()
+    return self.name
+end
+
 function Bee:getHealth()
     return self.health
 end

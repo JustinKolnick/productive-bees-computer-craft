@@ -9,6 +9,38 @@ function Hive.new(args)
     return self
 end
 
+function Hive:getName()
+    if self.name then return self.name end
+    local names = {}
+    for k, v in pairs(self.bees) do
+        if names[v:getName()] == nil then
+            names[v:getName()] = 1
+        else
+            names[v:getName()] = names[v:getName()] + 1
+        end
+    end
+
+    maxName = ""
+    max = 0
+    count = 0
+
+    for k, v in pairs(names) do
+        count = count + 1
+        if v > max then
+            maxName = k
+            max = v
+        end
+    end
+
+    local name = maxName
+    if count > 1 then
+        name = name .. "*"
+    end
+
+    self.name = name
+    return self.name
+end
+
 function Hive:getTotalHealth()
     if self.totalHealth then return self.totalHealth end
 

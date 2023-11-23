@@ -1463,13 +1463,13 @@ function init()
         monitor.setCursorPos(1, 1)
 
         local c = colonyBuilder.build(table)
-        monitor.write("??? Bees")
+        monitor.write(c[1][1]:getName())
         monitor.setCursorPos(1, 2)
-        monitor.write("Total Health: " .. c[1][1]:getTotalHealth())
+        monitor.write("Health: " .. c[1][1]:getTotalHealth())
         monitor.setCursorPos(1, 3)
-        monitor.write("Total Endurance: " .. c[1][1]:getTotalEndurance())
+        monitor.write("End: " .. c[1][1]:getTotalEndurance())
         monitor.setCursorPos(1, 4)
-        monitor.write("Total Productivity: " .. c[1][1]:getTotalProductivity())
+        monitor.write("Prod: " .. c[1][1]:getTotalProductivity())
     end
 end
 
@@ -1477,7 +1477,7 @@ init()
 
 -- function test()
 --     local c = colonyBuilder.build(stored)
---     print(c[1][1]:getTotalHealth()) -- still fails sometimes because we don't always get a hive with bees, need to fix missing key
+--     print(c[1][1]:getName()) -- still fails sometimes because we don't always get a hive with bees, need to fix missing key
 -- end
 
 
