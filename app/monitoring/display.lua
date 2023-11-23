@@ -1,3 +1,7 @@
+package.path = package.path .. ';../services/?.lua;'
+
+local colonyBuilder = require('colonyBuilder')
+
 function createPods(table)
     function createPod(pod)
 
@@ -62,6 +66,31 @@ function createPods(table)
     return createPod(table["Floor1"]["Pod4"])
 end
 
+function tprint (tbl, indent)
+    if not indent then indent = 0 end
+    local toprint = string.rep(" ", indent) .. "{\r\n"
+    indent = indent + 2 
+    for k, v in pairs(tbl) do
+      toprint = toprint .. string.rep(" ", indent)
+      if (type(k) == "number") then
+        toprint = toprint .. "[" .. k .. "] = "
+      elseif (type(k) == "string") then
+        toprint = toprint  .. k ..  "= "   
+      end
+      if (type(v) == "number") then
+        toprint = toprint .. v .. ",\r\n"
+      elseif (type(v) == "string") then
+        toprint = toprint .. "\"" .. v .. "\",\r\n"
+      elseif (type(v) == "table") then
+        toprint = toprint .. tprint(v, indent + 2) .. ",\r\n"
+      else
+        toprint = toprint .. "\"" .. tostring(v) .. "\",\r\n"
+      end
+    end
+    toprint = toprint .. string.rep(" ", indent-2) .. "}"
+    return toprint
+end
+
 function init()
     -- loop infinitely, checking for messages
 
@@ -96,7 +125,12 @@ function init()
     end
 end
 
-init()
+--init()
+
+function test()
+    local c = colonyBuilder.build()
+    print(tprint(c[1][1].hives[1].bees[1])) -- still fails sometimes because we don't always get a hive with bees, need to fix missing key
+end
 
 
-
+test()

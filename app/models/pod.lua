@@ -9,6 +9,7 @@ function Pod.new(args)
 end
 
 function Pod:getTotalHealth()
+    
     -- check if cached is nil, if so used true, other wise use false
     if self.totalHealth then return self.totalHealth end
 
@@ -23,6 +24,7 @@ function Pod:getTotalHealth()
 end
 
 function Pod:getTotalEndurance()
+
     -- check if cached is nil, if so used true, other wise use false
     if self.totalEndurance then return self.totalEndurance end
 
@@ -37,7 +39,6 @@ function Pod:getTotalEndurance()
 end
 
 function Pod:getTotalProductivity()
-    -- check if cached is nil, if so used true, other wise use false
     if self.totalProductivity then return self.totalProductivity end
 
     local totalProductivity = 0
