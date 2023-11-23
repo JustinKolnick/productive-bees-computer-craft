@@ -1443,7 +1443,9 @@ end
 function longestString(strs)
     local maxLen = 0
     local longestStr = ""
-    for k, v in pairs(strs) do
+    for k, v in ipairs(strs) do
+        print(k)
+        print(v)
         if v.len() > maxLen then
             maxLen = v.len()
             longestStr = v
@@ -1487,7 +1489,7 @@ function init()
         local endur = "End: " .. c[1][1]:getTotalEndurance()
         local produc = "Prod: " .. c[1][1]:getTotalProductivity()
         local _, length = longestString({name, health, endur, produc})
-        
+
         monitor.write(name)
         monitor.setCursorPos(1, 2)
         monitor.write(health)
