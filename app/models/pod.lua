@@ -101,7 +101,7 @@ function Pod:getUpgrades()
     end
 
     self.upgrades = podUpgrades
-    
+
     return self.upgrades
 end
 

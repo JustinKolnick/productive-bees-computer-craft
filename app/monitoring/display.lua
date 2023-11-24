@@ -1415,6 +1415,16 @@ function createPods(table)
     return createPod(table["Floor1"]["Pod4"])
 end
 
+local displayColorMap = {
+    ["Electrum Bees"] = colors.yellow,
+    ["Zirconium Bees"] = colors.yellow,
+    ["Oily Bees"] = colors.black,
+    ["Emerald Bees"] = colors.green,
+    ["Nickel Bees"] = colors.gray,
+    ["Lead Bees"] = colors.gray,
+    ["Tungsten Bees"] = colors.gray,
+}
+
 function tprint (tbl, indent)
     if not indent then indent = 0 end
     local toprint = string.rep(" ", indent) .. "{\r\n"
@@ -1487,13 +1497,14 @@ function init()
         monitor.setCursorPos(sw, sh)
         print("width " .. w)
         print("height " .. h)
-
-        monitor.setBackgroundColor(colors.black)
         
         local c = colonyBuilder.build(table)
 
         for k, pod in pairs(c[1]) do
             local name = pod:getName()
+            local color = displayColorMap[name] or colors.black
+            monitor.setBackgroundColor(color)
+            
             local health = "Health: " .. pod:getTotalHealth()
             local endur = "End: " .. pod:getTotalEndurance()
             local produc = "Prod: " .. pod:getTotalProductivity()
