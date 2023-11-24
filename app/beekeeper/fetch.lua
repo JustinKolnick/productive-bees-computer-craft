@@ -145,6 +145,8 @@ function init()
         os.pullEvent("redstone")
         if rs.getInput("right") then
             go()
+            local time = os.epoch("local") / 1000
+            print(os.date("%D, %r, %Z", time))
             sleep(360)
         end
     end
