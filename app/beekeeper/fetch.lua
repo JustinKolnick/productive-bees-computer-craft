@@ -126,7 +126,7 @@ function go()
     outputFile:write(textutils.serialize(output))
     outputFile:close()
 
-    peripheral.findd("modem", rednet.open)
+    peripheral.find("modem", rednet.open)
 
     -- send it to the main display computer(s)
     print(rednet.send(6, output))
