@@ -1452,6 +1452,12 @@ function longestString(strs)
     return longestStr, maxLen
 end
 
+function emptyString(len)
+    local s = ""
+    for i=1, len do s = s .. " " end
+    return s
+end
+
 function init()
     -- loop infinitely, checking for messages
 
@@ -1487,13 +1493,13 @@ function init()
         local produc = "Prod: " .. c[1][1]:getTotalProductivity()
         local _, length = longestString({name, health, endur, produc})
 
-        monitor.write(name)
+        monitor.write(name .. emptyString(string.len(name) - length))
         monitor.setCursorPos(2, 3)
-        monitor.write(health)
+        monitor.write(health .. emptyString(string.len(health) - length))
         monitor.setCursorPos(2, 4)
-        monitor.write(endur)
+        monitor.write(endur .. emptyString(string.len(endur) - length))
         monitor.setCursorPos(2, 5)
-        monitor.write(produc)
+        monitor.write(produc .. emptyString(string.len(produc) - length))
     end
 end
 
