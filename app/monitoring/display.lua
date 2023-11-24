@@ -1501,7 +1501,8 @@ function init()
         monitor.write(" " .. endur .. emptyString(length - string.len(endur)) .. " ")
         monitor.setCursorPos(2, 6)
         monitor.write(" " .. produc .. emptyString(length - string.len(produc)) .. " ")
-        monitor.write(" " .. emptyString(length) .." ")
+        monitor.setCursorPos(2, 7)
+        monitor.write(" " .. emptyString(length) .. " ")
     end
 end
 
