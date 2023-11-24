@@ -41,6 +41,10 @@ function Hive:getName()
     return self.name
 end
 
+function Hive:getUpgrades()
+    return self.upgrades
+end
+
 function Hive:getTotalHealth()
     if self.totalHealth then return self.totalHealth end
 

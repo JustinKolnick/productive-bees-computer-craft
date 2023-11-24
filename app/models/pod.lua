@@ -83,6 +83,28 @@ function Pod:getTotalProductivity()
     return self.totalProductivity
 end
 
+function Pod:getUpgrades()
+    if self.upgrades then return self.upgrades end
+
+    local podUpgrades = {}
+
+    for k, v in pairs(self.hives) do
+        local hiveUpgrades = v:getUpgrades()
+
+        for k1, v1 in pairs(hiveUpgrades) do
+            if podUpgrades[k1] == nil then
+                podUpgrades[k1] = v1.Count
+            else
+                podUpgrades[k1] = podUpgrades[k1] + v1.Count 
+            end
+        end
+    end
+
+    self.upgrades = podUpgrades
+    
+    return self.upgrades
+end
+
 function Pod:getPodStats()
     return {
         totalHealth = self:getTotalHealth(),

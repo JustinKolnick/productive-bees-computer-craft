@@ -1537,21 +1537,25 @@ function init()
             psh = psh + 1
             monitor.setCursorPos(psw, psh)
 
-            monitor.write(" " .. title .. emptyString(length - string.len(title)) .. " ")
-            psh = psh + 1
-            monitor.setCursorPos(psw, psh)
+            local numDisplayedUpgrades = 3
+            local count = 0
 
-            monitor.write(" " .. title .. emptyString(length - string.len(title)) .. " ")
-            psh = psh + 1
-            monitor.setCursorPos(psw, psh)
+            for k, v in pairs(pod:getUpgrades()) do
+                if count > 2 then
+                    monitor.write(" " .. "..." .. emptyString(length - string.len("...")) .. " ")
+                    psh = psh + 1
+                    monitor.setCursorPos(psw, psh)
+                    break
+                end
 
-            monitor.write(" " .. title .. emptyString(length - string.len(title)) .. " ")
-            psh = psh + 1
-            monitor.setCursorPos(psw, psh)
+                local msg = k .. " x" .. v
 
-            monitor.write(" " .. title .. emptyString(length - string.len(title)) .. " ")
-            psh = psh + 1
-            monitor.setCursorPos(psw, psh)
+                monitor.write(" " .. msg .. emptyString(length - string.len(msg)) .. " ")
+                psh = psh + 1
+                monitor.setCursorPos(psw, psh)
+
+                count = count + 1
+            end
 
             monitor.write(" " .. emptyString(length) .. " ")
             psh = psh + 1

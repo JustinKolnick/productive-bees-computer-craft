@@ -17,7 +17,6 @@ function colonyBuilder.build(stored)
     
             for k3, v3 in pairs(v2) do -- loop over hives
                 local bees = {}
-                
                 if v3["Bees"] ~= nil then -- key Bees could not exist! TODO should change this to an empty table instead of a non-existant key
                     for k4, v4 in pairs(v3["Bees"]) do -- loop over bees
                         local b = Bee.new(v4)
@@ -25,9 +24,14 @@ function colonyBuilder.build(stored)
                     end
                 end
 
+                local upgrades = {}
+                if v4["Upgrades"] ~= nil then
+                    upgrades = v4["Upgrades"]
+                end
+
                 local h = Hive.new({
                     bees = bees,
-                    upgrades = {},
+                    upgrades = upgrades,
                 })
     
                 table.insert(hives, h)
