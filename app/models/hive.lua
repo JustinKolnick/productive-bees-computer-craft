@@ -32,7 +32,7 @@ function Hive:getName()
         end
     end
 
-    local name = maxName
+    local name = maxName .. 's'
     if count > 1 then
         name = name .. "*"
     end
