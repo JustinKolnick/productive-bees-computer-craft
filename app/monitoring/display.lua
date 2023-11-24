@@ -1486,7 +1486,7 @@ function init()
         local sh = 2
         monitor.setCursorPos(sw, sh)
         print("width " .. w)
-        print("width " .. h)
+        print("height " .. h)
 
         monitor.setBackgroundColor(colors.black)
         
@@ -1528,6 +1528,7 @@ function init()
 
             -- upgrades
             local title = "Upgrades"
+            length = 10
 
             psw = psw + length + 2
             monitor.setCursorPos(psw, psh)
