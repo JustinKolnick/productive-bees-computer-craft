@@ -51,8 +51,8 @@ function Pod:getColor()
 
     local u = self:getUpgrades()
 
-    if u ~= nil and u["Gamma"] ~= nil and u["Gamma"] == 25 then return colors.green end
-    if u ~= nil and u["Gamma"] ~= nil and u["Gamma"] < 25 then return colors.orange end
+    if u ~= nil and u["Gamma"] ~= nil and u["Gamma"] == 20 then return colors.green end
+    if u ~= nil and u["Gamma"] ~= nil and u["Gamma"] < 20 then return colors.orange end
     if u ~= nil and u["Gamma"] == nil then return colors.orange end
 
     if string.find(self.name, '*') ~= nil then return colors.red end
