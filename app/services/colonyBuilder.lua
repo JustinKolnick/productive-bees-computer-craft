@@ -26,7 +26,7 @@ function colonyBuilder.build(stored)
 
                 local upgrades = {}
                 if v3["Upgrades"] ~= nil then
-                    upgrades = v4["Upgrades"]
+                    upgrades = v3["Upgrades"]
                 end
 
                 local h = Hive.new({
