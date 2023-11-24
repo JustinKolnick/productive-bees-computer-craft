@@ -146,7 +146,7 @@ function init()
         if rs.getInput("right") then
             go()
         end
-        sleep(10)
+        sleep(360)
     end
 end
 
