@@ -145,8 +145,8 @@ function init()
         os.pullEvent("redstone")
         if rs.getInput("right") then
             go()
+            sleep(360)
         end
-        sleep(360)
     end
 end
 
