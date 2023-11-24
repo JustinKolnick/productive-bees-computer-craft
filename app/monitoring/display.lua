@@ -1522,6 +1522,8 @@ function init()
             sh = sh + 1
             monitor.setCursorPos(sw, sh)
 
+            sh = sh + 1
+            monitor.setCursorPos(sw, sh)
         end
     end
 end
