@@ -25,7 +25,7 @@ function colonyBuilder.build(stored)
                 end
 
                 local upgrades = {}
-                if v4["Upgrades"] ~= nil then
+                if v3["Upgrades"] ~= nil then
                     upgrades = v4["Upgrades"]
                 end
 
