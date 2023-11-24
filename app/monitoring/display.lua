@@ -1551,6 +1551,10 @@ function init()
             psh = psh + 1
             monitor.setCursorPos(psw, psh)
 
+            monitor.write(" " .. emptyString(length) .. " ")
+            psh = psh + 1
+            monitor.setCursorPos(psw, psh)
+
             sh = sh + 1
             monitor.setCursorPos(sw, sh)
         end
