@@ -1497,7 +1497,7 @@ function init()
             local health = "Health: " .. pod:getTotalHealth()
             local endur = "End: " .. pod:getTotalEndurance()
             local produc = "Prod: " .. pod:getTotalProductivity()
-            local length = 20
+            local length = 15
             monitor.write(" " .. emptyString(length) .." ")
             sh = sh + 1
             monitor.setCursorPos(sw, sh)
