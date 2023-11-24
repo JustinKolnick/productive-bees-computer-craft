@@ -1586,7 +1586,7 @@ function init()
                 monitor.setCursorPos(sw, sh)
             end
 
-            sw = sw + 12 + 17
+            sw = sw + 12 + 17 + 1
             sh = 2
             print("resetting: " .. sw .. " " .. sh)
             monitor.setCursorPos(sw, sh)
