@@ -95,7 +95,13 @@ function init()
                 turtle.forward()
             end
         end
-        if r % 2 == 0 then
+        if r == Rows then
+            turtle.turnLeft()
+            for i=1, 12 do
+                turtle.forward()
+            end
+            turtle.turnLeft()
+        elseif r % 2 == 0 then
             turtle.turnRight()
             for i=1, BlocksBetweenRows+1 do
                 turtle.forward()
@@ -112,12 +118,8 @@ function init()
             turtle.forward()
             turtle.forward()
         end
-        
     end 
 
-    
-
-    
     local outputFile = io.open('stored','w')
     outputFile:write(textutils.serialize(output))
     outputFile:close()
