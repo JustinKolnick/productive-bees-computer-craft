@@ -23,6 +23,11 @@ function Pod:getName()
     max = 0
     count = 0
 
+    if maxName == "" then
+        self.name = "Empty"
+        return self.name
+    end
+
     for k, v in pairs(names) do
         count = count + 1
         if v > max then

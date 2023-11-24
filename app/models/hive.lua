@@ -32,6 +32,11 @@ function Hive:getName()
         end
     end
 
+    if maxName == "" then
+        self.name = "Empty"
+        return self.name
+    end
+
     local name = maxName .. 's'
     if count > 1 then
         name = name .. "*"
