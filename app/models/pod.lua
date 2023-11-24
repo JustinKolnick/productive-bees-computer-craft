@@ -49,14 +49,11 @@ function Pod:getColor()
     if self.name == "Empty" then return colors.black end -- Empty: Black
     if string.find(self.name, '*') ~= nil then return colors.red end -- Partial: Red
 
-    print(self.upgrades)
-    if (self.upgrades ~= nil) then
-        print(self.upgrades["Gamma"])
-        print(self.upgrades["Gamma"] < 25)
-    end
-    if self.upgrades ~= nil and self.upgrades["Gamma"] ~= nil and self.upgrades["Gamma"] == 25 then return colors.green end
-    if self.upgrades ~= nil and self.upgrades["Gamma"] ~= nil and self.upgrades["Gamma"] < 25 then return colors.orange end
-    if self.upgrades ~= nil and self.upgrades["Gamma"] == nil then return colors.orange end
+    local u = self:getUpgrades()
+
+    if u ~= nil and u["Gamma"] ~= nil and u["Gamma"] == 25 then return colors.green end
+    if u ~= nil and u["Gamma"] ~= nil and u["Gamma"] < 25 then return colors.orange end
+    if u ~= nil and u["Gamma"] == nil then return colors.orange end
 
     if string.find(self.name, '*') ~= nil then return colors.red end
 
