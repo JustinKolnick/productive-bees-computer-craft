@@ -1483,6 +1483,8 @@ function init()
         local w, h = monitor.getSize()
         monitor.setTextScale(0.9)
         monitor.setCursorPos(2, 2)
+        print("width " .. w)
+        print("width " .. h)
 
         monitor.setBackgroundColor(colors.black)
         
