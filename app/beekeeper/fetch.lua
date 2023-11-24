@@ -76,6 +76,12 @@ function init()
     end
     print("starting...")
 
+    if (turtle.getFuelLevel() < 2000) then
+        turtle.suckDown()
+        turtle.refuel()
+        turtle.pushDown()
+    end
+
     turtle.forward()
 
     output["Floor1"] = {}
