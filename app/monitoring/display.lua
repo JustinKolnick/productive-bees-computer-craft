@@ -5,7 +5,7 @@ local colonyBuilder = require('colonyBuilder')
 local displayColorMap = {
     ["Electrum Bees"] = colors.orange,
     ["Emerald Bees"] = colors.green,
-    ["Emerald Bees"] = colors.cyan,
+    ["Diamond Bees"] = colors.cyan,
     ["Inferium Bees"] = colors.green,
     ["Lead Bees"] = colors.gray,
     ["Nickel Bees"] = colors.gray,
@@ -176,7 +176,7 @@ function init()
                 monitor.setCursorPos(sw, sh)
             end
 
-            sw = sw + 12 + 17 + 3
+            sw = sw + 12 + 17 + 4 -- 12 (Bees+stats), 17 (upgrades), 4 (spacing)
             sh = 2
             print("resetting: " .. sw .. " " .. sh)
             monitor.setCursorPos(sw, sh)
