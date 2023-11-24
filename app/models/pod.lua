@@ -45,6 +45,20 @@ function Pod:getName()
     return self.name
 end
 
+function Pod:getColor()
+    if self.name == "Empty" then return colors.black end -- Empty: Black
+    if string.find(self.name, '*') ~= nil then return colors.red end -- Partial: Red
+
+    
+    if self.upgrades ~= nil and self.upgrades["Gamma"] ~= nil and self.upgrades["Gamma"] == 25 then return colors.green end
+    if self.upgrades ~= nil and self.upgrades["Gamma"] ~= nil and self.upgrades["Gamma"] < 25 then return colors.orange end
+    if self.upgrades ~= nil and self.upgrades["Gamma"] == nil then return colors.orange end
+
+    if string.find(self.name, '*') ~= nil then return colors.red end
+
+    return colors.gray
+end
+
 function Pod:getTotalHealth()
     
     -- check if cached is nil, if so used true, other wise use false

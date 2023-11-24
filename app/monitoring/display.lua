@@ -93,8 +93,7 @@ function init()
 
             for k, pod in pairs(row) do -- loop over pods in row
                 local name = pod:getName()
-                local color = displayColorMap[name] or colors.black
-                monitor.setBackgroundColor(color)
+                monitor.setBackgroundColor(pod:getColor())
                 
                 local health = "Health: " .. pod:getTotalHealth()
                 local endur = "End: " .. pod:getTotalEndurance()
