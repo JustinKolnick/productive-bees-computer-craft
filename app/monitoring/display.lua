@@ -78,6 +78,7 @@ function init()
         end
 
         monitor.setBackgroundColor(colors.lightGray)
+        monitor.setTextColor(colors.white)
         monitor.clear()
         
         local w, h = monitor.getSize()
