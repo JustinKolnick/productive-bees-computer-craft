@@ -1498,7 +1498,10 @@ function init()
             local endur = "End: " .. pod:getTotalEndurance()
             local produc = "Prod: " .. pod:getTotalProductivity()
             local length = 15
-            monitor.write(" " .. emptyString(length) .." ")
+            local psw = sw
+            local psh = sh
+            -- bees
+            monitor.write(" " .. emptyString(length) .. " ")
             sh = sh + 1
             monitor.setCursorPos(sw, sh)
 
@@ -1521,6 +1524,32 @@ function init()
             monitor.write(" " .. emptyString(length) .. " ")
             sh = sh + 1
             monitor.setCursorPos(sw, sh)
+
+
+            -- upgrades
+            local title = "Upgrades"
+
+            psw = psw + length + 2
+            monitor.setCursorPos(psw, psh)
+            monitor.write(" " .. emptyString(length) .. " ")
+            psh = psh + 1
+            monitor.setCursorPos(psw, psh)
+
+            monitor.write(" " .. title .. emptyString(length - string.len(title)) .. " ")
+            psh = psh + 1
+            monitor.setCursorPos(psw, psh)
+
+            monitor.write(" " .. title .. emptyString(length - string.len(title)) .. " ")
+            psh = psh + 1
+            monitor.setCursorPos(psw, psh)
+
+            monitor.write(" " .. title .. emptyString(length - string.len(title)) .. " ")
+            psh = psh + 1
+            monitor.setCursorPos(psw, psh)
+
+            monitor.write(" " .. title .. emptyString(length - string.len(title)) .. " ")
+            psh = psh + 1
+            monitor.setCursorPos(psw, psh)
 
             sh = sh + 1
             monitor.setCursorPos(sw, sh)
