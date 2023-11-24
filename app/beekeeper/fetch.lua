@@ -18,7 +18,7 @@ local upgradeMap = {
     ["productivebees:upgrade_productivity_3"] = "Gamma",
     ["productivebees:upgrade_productivity_4"] = "Omega",
     ["productivebees:upgrade_comb_block"] = "Block",
-    ["productivebees:upgrade_simulator"] = "Simulator",
+    ["productivebees:upgrade_simulator"] = "Sim",
 }
 
 local output = {}
