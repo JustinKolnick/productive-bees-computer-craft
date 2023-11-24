@@ -1455,7 +1455,6 @@ end
 function emptyString(len)
     local s = ""
     for i=1, len do s = s .. " " end
-    print("len" .. s)
     return s
 end
 
