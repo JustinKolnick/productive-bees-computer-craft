@@ -1470,12 +1470,13 @@ function init()
             n=n+1
             keyset[n]=k
         end
+
         monitor.setBackgroundColor(colors.lightGray)
         monitor.clear()
         
         local w, h = monitor.getSize()
         monitor.setTextScale(0.9)
-        monitor.setCursorPos(1, 1)
+        monitor.setCursorPos(2, 2)
 
         monitor.setBackgroundColor(colors.black)
         
@@ -1487,11 +1488,11 @@ function init()
         local _, length = longestString({name, health, endur, produc})
 
         monitor.write(name)
-        monitor.setCursorPos(1, 2)
+        monitor.setCursorPos(2, 3)
         monitor.write(health)
-        monitor.setCursorPos(1, 3)
+        monitor.setCursorPos(2, 4)
         monitor.write(endur)
-        monitor.setCursorPos(1, 4)
+        monitor.setCursorPos(2, 5)
         monitor.write(produc)
     end
 end
