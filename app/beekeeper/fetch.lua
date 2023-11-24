@@ -101,6 +101,7 @@ function init()
                 turtle.forward()
             end
             turtle.turnLeft()
+            turtle.forward()
         elseif r % 2 == 0 then
             turtle.turnRight()
             for i=1, BlocksBetweenRows+1 do
