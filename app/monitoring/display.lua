@@ -1537,14 +1537,15 @@ function init()
             psh = psh + 1
             monitor.setCursorPos(psw, psh)
 
-            local numDisplayedUpgrades = 3
+            local numDisplayedUpgrades = 4
             local count = 0
 
             for k, v in pairs(pod:getUpgrades()) do
-                if count > 2 then
+                if count >= numDisplayedUpgrades-1 then
                     monitor.write(" " .. "..." .. emptyString(length - string.len("...")) .. " ")
                     psh = psh + 1
                     monitor.setCursorPos(psw, psh)
+                    count = count + 1
                     break
                 end
 
@@ -1555,6 +1556,14 @@ function init()
                 monitor.setCursorPos(psw, psh)
 
                 count = count + 1
+            end
+
+            local temp = numDisplayedUpgrades - count
+
+            for i=1,temp do
+                monitor.write(" " .. emptyString(length) .. " ")
+                psh = psh + 1
+                monitor.setCursorPos(psw, psh)
             end
 
             monitor.write(" " .. emptyString(length) .. " ")

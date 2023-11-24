@@ -98,8 +98,10 @@ function init()
     outputFile:write(textutils.serialize(output))
     outputFile:close()
 
+    peripheral.find("modem", rednet.open)
+
     -- send it to the main display computer(s)
-    rednet.send(6, output)
+    print(rednet.send(6, output))
 end
 
 init()
