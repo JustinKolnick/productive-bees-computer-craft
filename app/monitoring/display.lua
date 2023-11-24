@@ -1483,13 +1483,16 @@ function init()
         
         local w, h = monitor.getSize()
         monitor.setTextScale(0.9)
-        monitor.setCursorPos(2, 2)
+        local sw = 2
+        local sh = 2
+        monitor.setCursorPos(sw, sh)
         print("width " .. w)
         print("width " .. h)
 
         monitor.setBackgroundColor(colors.black)
         
         local c = colonyBuilder.build(table)
+
         for k, pod in pairs(c[1]) do
             local name = pod:getName()
             local health = "Health: " .. pod:getTotalHealth()
@@ -1497,16 +1500,27 @@ function init()
             local produc = "Prod: " .. pod:getTotalProductivity()
             local _, length = longestString({name, health, endur, produc})
             monitor.write(" " .. emptyString(length) .." ")
-            monitor.setCursorPos(2, 3)
+            sh = sh + 1
+            monitor.setCursorPos(sw, sh)
+
             monitor.write(" " .. name .. emptyString(length - string.len(name)) .. " ")
-            monitor.setCursorPos(2, 4)
+            sh = sh + 1
+            monitor.setCursorPos(sw, sh)
+
             monitor.write(" " .. health .. emptyString(length - string.len(health)) .. " ")
-            monitor.setCursorPos(2, 5)
+            sh = sh + 1
+            monitor.setCursorPos(sw, sh)
+
             monitor.write(" " .. endur .. emptyString(length - string.len(endur)) .. " ")
-            monitor.setCursorPos(2, 6)
+            sh = sh + 1
+            monitor.setCursorPos(sw, sh)
+
             monitor.write(" " .. produc .. emptyString(length - string.len(produc)) .. " ")
-            monitor.setCursorPos(2, 7)
+            sh = sh + 1
+            monitor.setCursorPos(sw, sh)
+            
             monitor.write(" " .. emptyString(length) .. " ")
+
         end
     end
 end
