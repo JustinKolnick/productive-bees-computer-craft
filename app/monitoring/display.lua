@@ -1518,8 +1518,10 @@ function init()
             monitor.write(" " .. produc .. emptyString(length - string.len(produc)) .. " ")
             sh = sh + 1
             monitor.setCursorPos(sw, sh)
-            
+
             monitor.write(" " .. emptyString(length) .. " ")
+            sh = sh + 1
+            monitor.setCursorPos(sw, sh)
 
         end
     end
