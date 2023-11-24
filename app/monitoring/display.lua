@@ -1537,10 +1537,11 @@ function init()
                 sh = sh + 1
                 monitor.setCursorPos(sw, sh)
     
+    
                 -- upgrades
                 local title = "Upgrades"
                 
-                psw = psw + length + 2
+                psw = sw + length + 2
                 length = 10
     
                 monitor.setCursorPos(psw, psh)
@@ -1581,12 +1582,16 @@ function init()
                 psh = psh + 1
                 monitor.setCursorPos(psw, psh)
     
-                sw = psw + 12
-                sh = 2
-                print("resetting: " .. sw .. " " .. sh)
+                sh = sh + 1
                 monitor.setCursorPos(sw, sh)
             end
+
+            sw = sw + 12 + 17
+            sh = 2
+            print("resetting: " .. sw .. " " .. sh)
+            monitor.setCursorPos(sw, sh)
         end
+        
     end
 end
 
