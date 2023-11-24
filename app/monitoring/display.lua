@@ -82,7 +82,7 @@ function init()
         
         local w, h = monitor.getSize()
         monitor.setTextScale(0.9)
-        local sw = 2
+        local sw = 4
         local sh = 2
         monitor.setCursorPos(sw, sh)
         print("width " .. w)
