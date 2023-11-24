@@ -75,8 +75,10 @@ function init()
         return
     end
     print("starting...")
+    print("fuel level at " .. turtle.getFuelLevel())
 
     if (turtle.getFuelLevel() < 2000) then
+        print("Refueling...")
         turtle.suckDown()
         turtle.refuel()
         turtle.pushDown()
