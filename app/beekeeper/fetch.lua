@@ -66,14 +66,7 @@ function fetchHiveData()
     return hiveOutput
 end
 
-function init()
-    -- check that it's on the right block
-    local x, y, z = gps.locate()
-    if (start["X"] ~= x or start["Y"] ~= y or start["Z"] ~= z) then
-        print("not at the start coords, exiting...")
-        -- TODO: broadcast it's position to the main computer
-        return
-    end
+function go()
     print("starting...")
     print("fuel level at " .. turtle.getFuelLevel())
 
@@ -133,10 +126,28 @@ function init()
     outputFile:write(textutils.serialize(output))
     outputFile:close()
 
-    peripheral.find("modem", rednet.open)
+    peripheral.findd("modem", rednet.open)
 
     -- send it to the main display computer(s)
     print(rednet.send(6, output))
+end
+
+function init()
+    -- check that it's on the right block
+    local x, y, z = gps.locate()
+    if (start["X"] ~= x or start["Y"] ~= y or start["Z"] ~= z) then
+        print("not at the start coords, exiting...")
+        -- TODO: broadcast it's position to the main computer
+        return
+    end
+
+    while true do
+        os.pullEvent("redstone")
+        if rs.getInput("right") then
+            go()
+        end
+        sleep(10)
+    end
 end
 
 init()
