@@ -74,7 +74,7 @@ function go()
         print("Refueling...")
         turtle.suckDown()
         turtle.refuel()
-        turtle.pushDown()
+        turtle.pushUp()
     end
 
     turtle.forward()
