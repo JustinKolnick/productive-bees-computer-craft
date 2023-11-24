@@ -1528,9 +1528,10 @@ function init()
 
             -- upgrades
             local title = "Upgrades"
+            
+            psw = psw + length + 2
             length = 10
 
-            psw = psw + length + 2
             monitor.setCursorPos(psw, psh)
             monitor.write(" " .. emptyString(length) .. " ")
             psh = psh + 1
