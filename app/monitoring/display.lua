@@ -180,7 +180,11 @@ function init()
             print("resetting: " .. sw .. " " .. sh)
             monitor.setCursorPos(sw, sh)
         end
-        
+
+        monitor.setBackgroundColor(colors.lightGray)
+        monitor.setCursorPos(2, 50)
+        local time = os.epoch("local") / 1000
+        monitor.write("Last updated " .. os.date("%D, %r, %Z", time))
     end
 end
 
