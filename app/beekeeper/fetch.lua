@@ -95,13 +95,24 @@ function init()
                 turtle.forward()
             end
         end
-        turtle.turnLeft()
-        for i=1, BlocksBetweenRows+1 do
+        if r % 2 == 0 then
+            turtle.turnRight()
+            for i=1, BlocksBetweenRows+1 do
+                turtle.forward()
+            end
+            turtle.turnRight()
+            turtle.forward()
+            turtle.forward()
+        else
+            turtle.turnLeft()
+            for i=1, BlocksBetweenRows+1 do
+                turtle.forward()
+            end
+            turtle.turnLeft()
+            turtle.forward()
             turtle.forward()
         end
-        turtle.turnLeft()
-        turtle.forward()
-        turtle.forward()
+        
     end 
 
     
