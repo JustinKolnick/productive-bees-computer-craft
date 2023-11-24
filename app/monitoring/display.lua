@@ -1416,13 +1416,13 @@ function createPods(table)
 end
 
 local displayColorMap = {
-    ["Electrum Bees"] = colors.yellow,
-    ["Zirconium Bees"] = colors.yellow,
-    ["Oily Bees"] = colors.black,
+    ["Electrum Bees"] = colors.orange,
     ["Emerald Bees"] = colors.green,
-    ["Nickel Bees"] = colors.gray,
     ["Lead Bees"] = colors.gray,
+    ["Nickel Bees"] = colors.gray,
+    ["Oily Bees"] = colors.black,
     ["Tungsten Bees"] = colors.gray,
+    ["Zirconium Bees"] = colors.orange,
 }
 
 function tprint (tbl, indent)
