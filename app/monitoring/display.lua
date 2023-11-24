@@ -1499,90 +1499,92 @@ function init()
         print("height " .. h)
         
         local c = colonyBuilder.build(table)
+        for rk, row in pairs(c[1]) do -- loop over rows
 
-        for k, pod in pairs(c[1]) do
-            local name = pod:getName()
-            local color = displayColorMap[name] or colors.black
-            monitor.setBackgroundColor(color)
-            
-            local health = "Health: " .. pod:getTotalHealth()
-            local endur = "End: " .. pod:getTotalEndurance()
-            local produc = "Prod: " .. pod:getTotalProductivity()
-            local length = 15
-            local psw = sw
-            local psh = sh
-            -- bees
-            monitor.write(" " .. emptyString(length) .. " ")
-            sh = sh + 1
-            monitor.setCursorPos(sw, sh)
-
-            monitor.write(" " .. name .. emptyString(length - string.len(name)) .. " ")
-            sh = sh + 1
-            monitor.setCursorPos(sw, sh)
-
-            monitor.write(" " .. health .. emptyString(length - string.len(health)) .. " ")
-            sh = sh + 1
-            monitor.setCursorPos(sw, sh)
-
-            monitor.write(" " .. endur .. emptyString(length - string.len(endur)) .. " ")
-            sh = sh + 1
-            monitor.setCursorPos(sw, sh)
-
-            monitor.write(" " .. produc .. emptyString(length - string.len(produc)) .. " ")
-            sh = sh + 1
-            monitor.setCursorPos(sw, sh)
-
-            monitor.write(" " .. emptyString(length) .. " ")
-            sh = sh + 1
-            monitor.setCursorPos(sw, sh)
-
-
-            -- upgrades
-            local title = "Upgrades"
-            
-            psw = psw + length + 2
-            length = 10
-
-            monitor.setCursorPos(psw, psh)
-            monitor.write(" " .. emptyString(length) .. " ")
-            psh = psh + 1
-            monitor.setCursorPos(psw, psh)
-
-            local numDisplayedUpgrades = 4
-            local count = 0
-
-            for k, v in pairs(pod:getUpgrades()) do
-                if count >= numDisplayedUpgrades-1 then
-                    monitor.write(" " .. "..." .. emptyString(length - string.len("...")) .. " ")
-                    psh = psh + 1
-                    monitor.setCursorPos(psw, psh)
-                    count = count + 1
-                    break
-                end
-
-                local msg = k .. " x" .. v
-
-                monitor.write(" " .. msg .. emptyString(length - string.len(msg)) .. " ")
-                psh = psh + 1
+            for k, pod in pairs(row) do -- loop over pods in row
+                local name = pod:getName()
+                local color = displayColorMap[name] or colors.black
+                monitor.setBackgroundColor(color)
+                
+                local health = "Health: " .. pod:getTotalHealth()
+                local endur = "End: " .. pod:getTotalEndurance()
+                local produc = "Prod: " .. pod:getTotalProductivity()
+                local length = 15
+                local psw = sw
+                local psh = sh
+                -- bees
+                monitor.write(" " .. emptyString(length) .. " ")
+                sh = sh + 1
+                monitor.setCursorPos(sw, sh)
+    
+                monitor.write(" " .. name .. emptyString(length - string.len(name)) .. " ")
+                sh = sh + 1
+                monitor.setCursorPos(sw, sh)
+    
+                monitor.write(" " .. health .. emptyString(length - string.len(health)) .. " ")
+                sh = sh + 1
+                monitor.setCursorPos(sw, sh)
+    
+                monitor.write(" " .. endur .. emptyString(length - string.len(endur)) .. " ")
+                sh = sh + 1
+                monitor.setCursorPos(sw, sh)
+    
+                monitor.write(" " .. produc .. emptyString(length - string.len(produc)) .. " ")
+                sh = sh + 1
+                monitor.setCursorPos(sw, sh)
+    
+                monitor.write(" " .. emptyString(length) .. " ")
+                sh = sh + 1
+                monitor.setCursorPos(sw, sh)
+    
+                -- upgrades
+                local title = "Upgrades"
+                
+                psw = psw + length + 2
+                length = 10
+    
                 monitor.setCursorPos(psw, psh)
-
-                count = count + 1
-            end
-
-            local temp = numDisplayedUpgrades - count
-
-            for i=1,temp do
                 monitor.write(" " .. emptyString(length) .. " ")
                 psh = psh + 1
                 monitor.setCursorPos(psw, psh)
+    
+                local numDisplayedUpgrades = 4
+                local count = 0
+    
+                for k, v in pairs(pod:getUpgrades()) do
+                    if count >= numDisplayedUpgrades-1 then
+                        monitor.write(" " .. "..." .. emptyString(length - string.len("...")) .. " ")
+                        psh = psh + 1
+                        monitor.setCursorPos(psw, psh)
+                        count = count + 1
+                        break
+                    end
+    
+                    local msg = k .. " x" .. v
+    
+                    monitor.write(" " .. msg .. emptyString(length - string.len(msg)) .. " ")
+                    psh = psh + 1
+                    monitor.setCursorPos(psw, psh)
+    
+                    count = count + 1
+                end
+    
+                local temp = numDisplayedUpgrades - count
+    
+                for i=1,temp do
+                    monitor.write(" " .. emptyString(length) .. " ")
+                    psh = psh + 1
+                    monitor.setCursorPos(psw, psh)
+                end
+    
+                monitor.write(" " .. emptyString(length) .. " ")
+                psh = psh + 1
+                monitor.setCursorPos(psw, psh)
+    
+                sw = psw + 12
+                sh = 2
+                monitor.setCursorPos(sw, sh)
             end
-
-            monitor.write(" " .. emptyString(length) .. " ")
-            psh = psh + 1
-            monitor.setCursorPos(psw, psh)
-
-            sh = sh + 1
-            monitor.setCursorPos(sw, sh)
         end
     end
 end
