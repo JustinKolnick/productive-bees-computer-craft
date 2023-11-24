@@ -81,6 +81,7 @@ function init()
     output["Floor1"] = {}
     for r=1,Rows do
         print("row: " .. r)
+        output["Floor1"]["Row" .. r] = {}
         for p=1,PodsPerRow do
             print("pod: " .. p)
             output["Floor1"]["Row" .. r]["Pod" .. p] = {}
