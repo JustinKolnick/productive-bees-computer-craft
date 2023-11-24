@@ -1493,13 +1493,13 @@ function init()
         local produc = "Prod: " .. c[1][1]:getTotalProductivity()
         local _, length = longestString({name, health, endur, produc})
 
-        monitor.write(name .. emptyString(string.len(name) - length))
+        monitor.write(name .. emptyString(length - string.len(name)))
         monitor.setCursorPos(2, 3)
-        monitor.write(health .. emptyString(string.len(health) - length))
+        monitor.write(health .. emptyString(length - string.len(health)))
         monitor.setCursorPos(2, 4)
-        monitor.write(endur .. emptyString(string.len(endur) - length))
+        monitor.write(endur .. emptyString(length - string.len(endur)))
         monitor.setCursorPos(2, 5)
-        monitor.write(produc .. emptyString(string.len(produc) - length))
+        monitor.write(produc .. emptyString(length - string.len(produc)))
     end
 end
 
