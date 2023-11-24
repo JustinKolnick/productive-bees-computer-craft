@@ -182,7 +182,8 @@ function init()
         end
 
         monitor.setBackgroundColor(colors.lightGray)
-        monitor.setCursorPos(2, 50)
+        monitor.setCursorPos(4, 51)
+        monitor.setTextColor(colors.black)
         local time = os.epoch("local") / 1000
         monitor.write("Last updated " .. os.date("%D, %r, %Z", time))
     end
