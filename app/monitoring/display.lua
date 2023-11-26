@@ -97,9 +97,19 @@ function displayFromFile()
         for rk = Rows,1, -1 do -- loop over rows
             local row = floor["Row"..rk]
 
-            for pk = 1, Pods do -- loop over pods in row
-                local pod = row["Pod"..pk]
+            local start = 1
+            local fin = 1
 
+            if rk % 2 == 0 then
+                start = 1
+                fin = Pods
+            else
+                start = Pods
+                fin = 1
+            end
+
+            for pk = start, fin do -- loop over pods in row
+                local pod = row["Pod"..pk]
 
                 local name = pod:getName()
                 monitor.setBackgroundColor(pod:getColor())
