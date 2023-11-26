@@ -183,7 +183,7 @@ end
 
 function save(msg)
     local outputFile = io.open('stored','w')
-    outputFile:write(textutils.serialize(output))
+    outputFile:write(textutils.serialize(msg))
     outputFile:close()
 end
 
