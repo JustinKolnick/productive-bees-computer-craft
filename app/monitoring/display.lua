@@ -97,21 +97,22 @@ function displayFromFile()
         for rk = Rows,1, -1 do -- loop over rows
             local row = floor["Row"..rk]
 
-
             local start = 1
             local fin = 1
+            local dir = 1
 
             if rk % 2 == 0 then
                 start = 1
                 fin = Pods
+                dir = 1
             else
                 start = Pods
                 fin = 1
+                dir = -1
             end
-            print(rk .. " " .. start .. " " .. fin)
 
+            for pk = start, fin, dir do -- loop over pods in row
 
-            for pk = start, fin do -- loop over pods in row
                 local pod = row["Pod"..pk]
 
                 local name = pod:getName()
