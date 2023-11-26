@@ -101,11 +101,11 @@ function displayLegend(f)
 
     monitor.setBackgroundColor(colors.lightGray)
     monitor.setTextColor(colors.black)
-    monitor.setCursorPos(136, 31)
+    monitor.setCursorPos(136, 30)
     monitor.write("     ")
-    monitor.setCursorPos(136, 32)
+    monitor.setCursorPos(136, 31)
     monitor.write("  v  ")
-    monitor.setCursorPos(136, 33)
+    monitor.setCursorPos(136, 32)
     monitor.write("     ")
 
 end
@@ -258,8 +258,8 @@ local clickMap = {
     {
         x1 = 136,
         x2 = 141,
-        y1 = 31,
-        y2 = 33,
+        y1 = 30,
+        y2 = 32,
         method = "displayFloor2"
     },
     {
