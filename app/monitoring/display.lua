@@ -189,7 +189,7 @@ end
 
 function init()
     -- on startup, build a display from data on disk
-    -- displayFromFile()
+    displayFromFile()
 
     while true do
         local eventData = {os.pullEvent()}
