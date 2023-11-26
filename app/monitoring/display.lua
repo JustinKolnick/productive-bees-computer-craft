@@ -77,7 +77,7 @@ function displayLegend()
 
     monitor.setBackgroundColor(colors.white)
     monitor.setTextColor(colors.black)
-    monitor.setCursorPos(136, 15)
+    monitor.setCursorPos(136, 17)
     monitor.write("Floor")
 
     monitor.setBackgroundColor(colors.lightGray)
@@ -251,6 +251,23 @@ function displayFloorFromFile(floor)
 
 end
 
+local clickMap = {
+    {
+        x1 = 136,
+        X2 = 141,
+        y1 = 31,
+        y2 = 33,
+        method = "displayFloorFromFile(1)"
+    },
+    {
+        x1 = 136,
+        X2 = 141,
+        y1 = 20,
+        y2 = 22,
+        method = "displayFloorFromFile(2)"
+    },
+}
+
 function init()
     -- on startup, build a display from data on disk
     displayFloorFromFile(1)
@@ -266,6 +283,13 @@ function init()
         elseif eventData[1] == "monitor_touch" then
             -- TODO: check position against displayClickMap to see what should be displayed next
             print("The monitor on side " .. eventData[2] .. " was touched at (" .. eventData[3] .. ", " .. eventData[4] .. ")")
+            local x = eventData[3]
+            local y = eventData[4]
+            for k, entry in pairs(clickMap) do
+                if entry.x1 <= x and entry.x2 >= x and entry.y1 <= y and entry.y2 >= y then
+                    print(entry.method)
+                end
+            end
         end
     end
 end
