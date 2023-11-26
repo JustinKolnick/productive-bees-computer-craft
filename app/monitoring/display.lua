@@ -108,8 +108,8 @@ function displayLegend()
 
 end
 
-function displayFloorFromFile(floor)
-    if floor < 1 or floor > 2 then
+function displayFloorFromFile(f)
+    if f < 1 or f > 2 then
         printError("Floor is not in range!")
         return
     end
@@ -125,7 +125,8 @@ function displayFloorFromFile(floor)
 
     save(c, "parsedColony")
 
-    local floor = c["Floor"..floor]
+    local floor = c["Floor"..f]
+    print("Floor" .. f)
     monitor.setBackgroundColor(colors.white)
     monitor.setTextColor(colors.white)
     monitor.clear()
