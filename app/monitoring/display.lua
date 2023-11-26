@@ -97,6 +97,7 @@ function displayFromFile()
         for rk = Rows,1, -1 do -- loop over rows
             local row = floor["Row"..rk]
 
+
             local start = 1
             local fin = 1
 
@@ -107,6 +108,8 @@ function displayFromFile()
                 start = Pods
                 fin = 1
             end
+            print(rk .. " " .. start .. " " .. fin)
+
 
             for pk = start, fin do -- loop over pods in row
                 local pod = row["Pod"..pk]
