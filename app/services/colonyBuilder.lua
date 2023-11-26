@@ -54,9 +54,7 @@ function colonyBuilder.build(stored)
         table.insert(floors, rows)
     end
 
-    table.insert(colony, floors)
-    
-    return colony
+    return floors
 end
 
 return colonyBuilder
