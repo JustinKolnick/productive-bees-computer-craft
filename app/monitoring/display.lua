@@ -254,14 +254,14 @@ end
 local clickMap = {
     {
         x1 = 136,
-        X2 = 141,
+        x2 = 141,
         y1 = 31,
         y2 = 33,
         method = "displayFloorFromFile(1)"
     },
     {
         x1 = 136,
-        X2 = 141,
+        x2 = 141,
         y1 = 20,
         y2 = 22,
         method = "displayFloorFromFile(2)"
