@@ -94,10 +94,10 @@ function displayFromFile()
         print("width " .. w)
         print("height " .. h)
 
-        for rk = 1,Rows do -- loop over rows
+        for rk = Rows,1, -1 do -- loop over rows
             local row = floor["Row"..rk]
 
-            for pk = Pods, 1, -1 do -- loop over pods in row
+            for pk = 1, Pods do -- loop over pods in row
                 local pod = row["Pod"..pk]
 
 
