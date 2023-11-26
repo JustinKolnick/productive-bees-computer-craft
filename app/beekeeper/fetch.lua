@@ -138,16 +138,37 @@ function go()
             end
         end
 
-        -- do next floor traversal
-        turtle.turnLeft()
-        for i=1, 12 do
+        if f == Floors then
+            -- go home
+            turtle.turnLeft()
+            for i=1, 12 do
+                turtle.forward()
+            end
+            local up = (Floors - 1) * 5 + 2 -- go back to same height as start
+            for i=1,up  do
+                turtle.up()
+            end
+            for i=1, 11 do
+                turtle.forward()
+            end
+
+            turtle.turnLeft()
+            turtle.turnLeft()
+
+            -- done, back home.
+
+        else
+            -- do next floor traversal
+            turtle.turnLeft()
+            for i=1, 12 do
+                turtle.forward()
+            end
+            for i=1, 5 do
+                turtle.down()
+            end
+            turtle.turnLeft()
             turtle.forward()
         end
-        for i=1, 5 do
-            turtle.down()
-        end
-        turtle.turnLeft()
-        turtle.forward()
     end
 
     local outputFile = io.open('stored','w')
