@@ -68,7 +68,7 @@ function emptyString(len)
     return s
 end
 
-function displayLegend()
+function displayLegend(f)
     monitor.setBackgroundColor(colors.white)
     monitor.setCursorPos(4, 51)
     monitor.setTextColor(colors.black)
@@ -89,13 +89,15 @@ function displayLegend()
     monitor.setCursorPos(136, 22)
     monitor.write("     ")
 
-    monitor.setBackgroundColor(colors.green)
-    monitor.setCursorPos(136, 25)
-    monitor.write("  1  ")
-
-    monitor.setBackgroundColor(colors.lightGray)
-    monitor.setCursorPos(136, 28)
-    monitor.write("  2  ")
+    for i=1, Floors do
+        if i == f then
+            monitor.setBackgroundColor(colors.green)
+        else
+            monitor.setBackgroundColor(colors.lightGray)
+        end
+        monitor.setCursorPos(136, 25 + (i*2))
+        monitor.write("  "..i.."  ")
+    end
 
     monitor.setBackgroundColor(colors.lightGray)
     monitor.setTextColor(colors.black)
@@ -248,7 +250,7 @@ function displayFloorFromFile(f)
         monitor.setCursorPos(sw, sh)
     end
 
-    displayLegend()
+    displayLegend(f)
 
 end
 
