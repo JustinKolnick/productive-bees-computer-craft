@@ -58,9 +58,10 @@ function fetchHiveData()
 
     local hive = r.getBlockData()
     local hiveOutput = {}
+    hiveOutput["Bees"] = {}
+    hiveOutput["Upgrades"] = {}
 
     if hive["BeeList"] and hive["BeeList"]["Inhabitants"] then
-        hiveOutput["Bees"] = {}
         -- loop over bees and add to hiveOutput
         for k, details in pairs(hive["BeeList"]["Inhabitants"]) do
             hiveOutput["Bees"][k] = {
@@ -74,8 +75,6 @@ function fetchHiveData()
 
     if hive["upgrades"] and hive["upgrades"]["Items"] then
         -- loop over items and add to hiveOutput
-        hiveOutput["Upgrades"] = {}
-
 
         for k, details in pairs(hive["upgrades"]["Items"]) do
             local id = upgradeMap[details["id"]] or details["id"]
