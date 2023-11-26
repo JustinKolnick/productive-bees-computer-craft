@@ -75,6 +75,11 @@ function displayLegend()
     local time = os.epoch("local") / 1000
     monitor.write("Last updated " .. os.date("%D, %r, %Z", time))
 
+    monitor.setBackgroundColor(colors.white)
+    monitor.setTextColor(colors.black)
+    monitor.setCursorPos(136, 15)
+    monitor.write("Floors")
+
     monitor.setBackgroundColor(colors.lightGray)
     monitor.setTextColor(colors.black)
     monitor.setCursorPos(136, 20)
