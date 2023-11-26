@@ -95,7 +95,7 @@ function displayLegend(f)
         else
             monitor.setBackgroundColor(colors.lightGray)
         end
-        monitor.setCursorPos(136, 25 + (i*2))
+        monitor.setCursorPos(136, 23 + (i*2))
         monitor.write("  "..i.."  ")
     end
 
@@ -260,14 +260,14 @@ local clickMap = {
         x2 = 141,
         y1 = 31,
         y2 = 33,
-        method = "displayFloor1"
+        method = "displayFloor2"
     },
     {
         x1 = 136,
         x2 = 141,
         y1 = 20,
         y2 = 22,
-        method = "displayFloor2"
+        method = "displayFloor1"
     },
 }
 
