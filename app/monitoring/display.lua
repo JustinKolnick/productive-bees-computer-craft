@@ -257,14 +257,14 @@ local clickMap = {
         x2 = 141,
         y1 = 31,
         y2 = 33,
-        method = "displayFloorFromFile(1)"
+        method = "displayFloor1"
     },
     {
         x1 = 136,
         x2 = 141,
         y1 = 20,
         y2 = 22,
-        method = "displayFloorFromFile(2)"
+        method = "displayFloor2"
     },
 }
 
@@ -289,7 +289,15 @@ function init()
                 print(textutils.serialize(entry))
                 print(x .."  " .. y)
                 if entry.x1 <= x and entry.x2 >= x and entry.y1 <= y and entry.y2 >= y then
-                    print(entry.method)
+                    if entry.method == 'displayFloor1' then
+                        displayFloorFromFile(1)
+                        return
+                    end
+
+                    if entry.method == 'displayFloor2' then
+                        displayFloorFromFile(2)
+                        return
+                    end
                 end
             end
         end
