@@ -96,9 +96,9 @@ function displayLegend()
     monitor.setTextColor(colors.black)
     monitor.setCursorPos(136, 31)
     monitor.write("     ")
-    monitor.setCursorPos(136, 34)
+    monitor.setCursorPos(136, 32)
     monitor.write("  v  ")
-    monitor.setCursorPos(136, 37)
+    monitor.setCursorPos(136, 33)
     monitor.write("     ")
 
 end
