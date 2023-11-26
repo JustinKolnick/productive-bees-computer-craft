@@ -108,7 +108,7 @@ function go()
                 output["Floor1"]["Row" .. r]["Pod" .. p] = {}
                 for i=1,HivesPerPod do
                     print("hive: " .. i)
-                    output["Floor1"]["Row" .. r]["Pod" .. p]["Hive" .. i] = fetchHiveData()
+                    output["Floor"..f]["Row" .. r]["Pod" .. p]["Hive" .. i] = fetchHiveData()
                     turtle.forward()
                 end
         
