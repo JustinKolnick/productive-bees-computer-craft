@@ -12,7 +12,7 @@ local PodsPerRow = 7
 local BlocksBetweenRows = 3
 local BlocksBetweenPods = 1
 local Rows = 4
-local Floors = 1
+local Floors = 2
 local blockReaderDirection = "top"
 
 -- Modify this function as needed to get your turtle to travel 
@@ -93,10 +93,13 @@ end
 
 function go()
     local output = {}
-    turtle.forward()
 
     for f=1, Floors do
         output["Floor"..f] = {}
+        -- turtle is one block back from first hive
+        turtle.forward()
+        -- turtle is under first hive
+
         for r=1,Rows do
             print("row: " .. r)
             output["Floor"..f]["Row" .. r] = {}
@@ -113,13 +116,9 @@ function go()
                     turtle.forward()
                 end
             end
+            
             if r == Rows then
-                turtle.turnLeft()
-                for i=1, 12 do
-                    turtle.forward()
-                end
-                turtle.turnLeft()
-                turtle.forward()
+                break -- do next floor traversal 
             elseif r % 2 == 0 then
                 turtle.turnRight()
                 for i=1, BlocksBetweenRows+1 do
@@ -138,6 +137,17 @@ function go()
                 turtle.forward()
             end
         end
+
+        -- do next floor traversal
+        turtle.turnLeft()
+        for i=1, 12 do
+            turtle.forward()
+        end
+        for i=1, 5 do
+            turtle.down()
+        end
+        turtle.turnLeft()
+        turtle.forward()
     end
 
     local outputFile = io.open('stored','w')
