@@ -86,7 +86,7 @@ function displayFromFile()
             print(rk, row)
 
             for k, pod in pairs(row) do -- loop over pods in row
-                print(k, pod)
+                print(k, textutils.serialize(pod))
                 local name = pod:getName()
                 monitor.setBackgroundColor(pod:getColor())
                 
