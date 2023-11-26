@@ -292,12 +292,10 @@ function init()
                 if entry.x1 <= x and entry.x2 >= x and entry.y1 <= y and entry.y2 >= y then
                     if entry.method == 'displayFloor1' then
                         displayFloorFromFile(1)
-                        return
                     end
 
                     if entry.method == 'displayFloor2' then
                         displayFloorFromFile(2)
-                        return
                     end
                 end
             end
