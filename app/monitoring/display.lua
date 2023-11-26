@@ -77,12 +77,30 @@ function displayLegend()
 
     monitor.setBackgroundColor(colors.lightGray)
     monitor.setTextColor(colors.black)
-    monitor.setCursorPos(138, 20)
-    monitor.write("   ")
-    monitor.setCursorPos(138, 21)
-    monitor.write(" ^ ")
-    monitor.setCursorPos(138, 22)
-    monitor.write("   ")
+    monitor.setCursorPos(136, 20)
+    monitor.write("     ")
+    monitor.setCursorPos(136, 21)
+    monitor.write("  ^  ")
+    monitor.setCursorPos(136, 22)
+    monitor.write("     ")
+
+    monitor.setBackgroundColor(colors.green)
+    monitor.setCursorPos(136, 25)
+    monitor.write("     ")
+
+    monitor.setBackgroundColor(colors.lightGray)
+    monitor.setCursorPos(136, 28)
+    monitor.write("     ")
+
+    monitor.setBackgroundColor(colors.lightGray)
+    monitor.setTextColor(colors.black)
+    monitor.setCursorPos(136, 31)
+    monitor.write("     ")
+    monitor.setCursorPos(136, 34)
+    monitor.write("  v  ")
+    monitor.setCursorPos(136, 37)
+    monitor.write("     ")
+
 end
 
 function displayFloorFromFile(floor)
