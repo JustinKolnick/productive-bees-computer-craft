@@ -74,6 +74,8 @@ function displayFromFile()
     
     local c = colonyBuilder.build(table)
 
+    save(c, "parsedColony")
+
     for fk, floor in pairs(c) do
         monitor.setBackgroundColor(colors.lightGray)
         monitor.setTextColor(colors.white)
@@ -92,6 +94,7 @@ function displayFromFile()
             print(rk, row)
 
             for k, pod in pairs(row) do -- loop over pods in row
+
                 local name = pod:getName()
                 monitor.setBackgroundColor(pod:getColor())
                 
