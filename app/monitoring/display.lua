@@ -88,10 +88,8 @@ function displayFromFile()
         monitor.setCursorPos(sw, sh)
         print("width " .. w)
         print("height " .. h)
-        print(fk, floor)
 
         for rk, row in pairs(floor) do -- loop over rows
-            print(rk, row)
 
             for k, pod in pairs(row) do -- loop over pods in row
 
@@ -180,7 +178,6 @@ function displayFromFile()
     
             sw = sw + 12 + 17 + 4 -- 12 (Bees+stats), 17 (upgrades), 4 (spacing)
             sh = 2
-            print("resetting: " .. sw .. " " .. sh)
             monitor.setCursorPos(sw, sh)
         end
     end
