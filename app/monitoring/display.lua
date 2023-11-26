@@ -98,7 +98,7 @@ function displayFromFile()
             local row = floor["Row"..rk]
 
             for pk = 1, Pods do -- loop over pods in row
-                local pod = row["Pod"..rk]
+                local pod = row["Pod"..pk]
 
 
                 local name = pod:getName()
