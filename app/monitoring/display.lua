@@ -81,7 +81,7 @@ function displayFromFile()
     save(c, "parsedColony")
 
     for fk = 1, Floors do
-        local floor = Floors["Floor"..fk]
+        local floor = c["Floor"..fk]
         monitor.setBackgroundColor(colors.lightGray)
         monitor.setTextColor(colors.white)
         monitor.clear()
