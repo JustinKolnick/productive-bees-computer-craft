@@ -15,6 +15,12 @@ local displayColorMap = {
     ["Zirconium Bees"] = colors.orange,
 }
 
+function save(msg, filename)
+    local outputFile = io.open(filename,'w')
+    outputFile:write(textutils.serialize(msg))
+    outputFile:close()
+end
+
 function tprint (tbl, indent)
     if not indent then indent = 0 end
     local toprint = string.rep(" ", indent) .. "{\r\n"
@@ -68,6 +74,8 @@ function displayFromFile()
     
     local c = colonyBuilder.build(table)
 
+    save(c, "parsedColony")
+
     for fk, floor in pairs(c) do
         monitor.setBackgroundColor(colors.lightGray)
         monitor.setTextColor(colors.white)
@@ -88,9 +96,7 @@ function displayFromFile()
             for k, pod in pairs(row) do -- loop over pods in row
                 print(k, textutils.serialize(pod))
 
-                local outputFile = io.open('test','w')
-                outputFile:write(textutils.serialize(pod))
-                outputFile:close()
+                save(pod, "test")
                 local name = pod:getName()
                 monitor.setBackgroundColor(pod:getColor())
                 
@@ -188,11 +194,7 @@ function displayFromFile()
     monitor.write("Last updated " .. os.date("%D, %r, %Z", time))
 end
 
-function save(msg)
-    local outputFile = io.open('stored','w')
-    outputFile:write(textutils.serialize(msg))
-    outputFile:close()
-end
+
 
 function init()
     -- on startup, build a display from data on disk
@@ -204,7 +206,7 @@ function init()
         -- loop infinitely, checking for messages or monitor touch
         if eventData[1] == "rednet_message" then
             local msg = eventData[3]
-            save(msg)
+            save(msg, "stored")
             displayFromFile()
         elseif eventData[1] == "monitor_touch" then
             -- TODO: check position against displayClickMap to see what should be displayed next
