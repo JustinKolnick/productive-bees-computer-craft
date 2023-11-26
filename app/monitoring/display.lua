@@ -303,8 +303,6 @@ function init()
             local x = eventData[3]
             local y = eventData[4]
             for k, entry in pairs(clickMap) do
-                print(textutils.serialize(entry))
-                print(x .."  " .. y)
                 if entry.x1 <= x and entry.x2 >= x and entry.y1 <= y and entry.y2 >= y then
                     if entry.method == 'displayFloor1' then
                         displayFloorFromFile(1)
