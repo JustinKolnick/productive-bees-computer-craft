@@ -2,6 +2,10 @@ package.path = package.path .. ';../services/?.lua;'
 
 local colonyBuilder = require('colonyBuilder')
 
+local Rows = 4
+local Floors = 2
+local Pods = 7
+
 local displayColorMap = {
     ["Electrum Bees"] = colors.orange,
     ["Emerald Bees"] = colors.green,
@@ -76,7 +80,8 @@ function displayFromFile()
 
     save(c, "parsedColony")
 
-    for fk, floor in pairs(c) do
+    for fk = 1, Floors do
+        local floor = Floors["Floor"..fk]
         monitor.setBackgroundColor(colors.lightGray)
         monitor.setTextColor(colors.white)
         monitor.clear()
@@ -89,9 +94,12 @@ function displayFromFile()
         print("width " .. w)
         print("height " .. h)
 
-        for rk, row in pairs(floor) do -- loop over rows
+        for rk = 1,Rows do -- loop over rows
+            local row = floor["Row"..rk]
 
-            for k, pod in pairs(row) do -- loop over pods in row
+            for pk = 1, Pods do -- loop over pods in row
+                local pod = row["Pod"..rk]
+
 
                 local name = pod:getName()
                 monitor.setBackgroundColor(pod:getColor())
