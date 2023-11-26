@@ -58,123 +58,120 @@ function emptyString(len)
     return s
 end
 
-function go(msg)
+function displayFromFile()
+    local file = fs.open("stored", "r")
+    local table = textutils.unserialize(file.readAll())
+
     monitor = peripheral.find("monitor")
 
-    local table = msg
     print("refreshing display...")
-
-    local keyset={}
-    local n=0
-
-    for k,v in pairs(table) do
-        n=n+1
-        keyset[n]=k
-    end
-
-    monitor.setBackgroundColor(colors.lightGray)
-    monitor.setTextColor(colors.white)
-    monitor.clear()
-    
-    local w, h = monitor.getSize()
-    monitor.setTextScale(0.9)
-    local sw = 4
-    local sh = 2
-    monitor.setCursorPos(sw, sh)
-    print("width " .. w)
-    print("height " .. h)
     
     local c = colonyBuilder.build(table)
-    for rk, row in pairs(c[1]) do -- loop over rows
 
-        for k, pod in pairs(row) do -- loop over pods in row
-            local name = pod:getName()
-            monitor.setBackgroundColor(pod:getColor())
-            
-            local health = "Health: " .. pod:getTotalHealth()
-            local endur = "End: " .. pod:getTotalEndurance()
-            local produc = "Prod: " .. pod:getTotalProductivity()
-            local length = 15
-            local psw = sw
-            local psh = sh
-            -- bees
-            monitor.write(" " .. emptyString(length) .. " ")
-            sh = sh + 1
-            monitor.setCursorPos(sw, sh)
+    for fk, floor in pairs(c) do
+        monitor.setBackgroundColor(colors.lightGray)
+        monitor.setTextColor(colors.white)
+        monitor.clear()
+        
+        local w, h = monitor.getSize()
+        monitor.setTextScale(0.9)
+        local sw = 4
+        local sh = 2
+        monitor.setCursorPos(sw, sh)
+        print("width " .. w)
+        print("height " .. h)
 
-            monitor.write(" " .. name .. emptyString(length - string.len(name)) .. " ")
-            sh = sh + 1
-            monitor.setCursorPos(sw, sh)
+        for rk, row in pairs(floor) do -- loop over rows
 
-            monitor.write(" " .. health .. emptyString(length - string.len(health)) .. " ")
-            sh = sh + 1
-            monitor.setCursorPos(sw, sh)
-
-            monitor.write(" " .. endur .. emptyString(length - string.len(endur)) .. " ")
-            sh = sh + 1
-            monitor.setCursorPos(sw, sh)
-
-            monitor.write(" " .. produc .. emptyString(length - string.len(produc)) .. " ")
-            sh = sh + 1
-            monitor.setCursorPos(sw, sh)
-
-            monitor.write(" " .. emptyString(length) .. " ")
-            sh = sh + 1
-            monitor.setCursorPos(sw, sh)
-
-
-            -- upgrades
-            local title = "Upgrades"
-            
-            psw = sw + length + 2
-            length = 10
-
-            monitor.setCursorPos(psw, psh)
-            monitor.write(" " .. emptyString(length) .. " ")
-            psh = psh + 1
-            monitor.setCursorPos(psw, psh)
-
-            local numDisplayedUpgrades = 4
-            local count = 0
-
-            for k, v in pairs(pod:getUpgrades()) do
-                if count >= numDisplayedUpgrades-1 then
-                    monitor.write(" " .. "..." .. emptyString(length - string.len("...")) .. " ")
-                    psh = psh + 1
-                    monitor.setCursorPos(psw, psh)
-                    count = count + 1
-                    break
-                end
-
-                local msg = k .. " x" .. v
-
-                monitor.write(" " .. msg .. emptyString(length - string.len(msg)) .. " ")
-                psh = psh + 1
+            for k, pod in pairs(row) do -- loop over pods in row
+                local name = pod:getName()
+                monitor.setBackgroundColor(pod:getColor())
+                
+                local health = "Health: " .. pod:getTotalHealth()
+                local endur = "End: " .. pod:getTotalEndurance()
+                local produc = "Prod: " .. pod:getTotalProductivity()
+                local length = 15
+                local psw = sw
+                local psh = sh
+                -- bees
+                monitor.write(" " .. emptyString(length) .. " ")
+                sh = sh + 1
+                monitor.setCursorPos(sw, sh)
+    
+                monitor.write(" " .. name .. emptyString(length - string.len(name)) .. " ")
+                sh = sh + 1
+                monitor.setCursorPos(sw, sh)
+    
+                monitor.write(" " .. health .. emptyString(length - string.len(health)) .. " ")
+                sh = sh + 1
+                monitor.setCursorPos(sw, sh)
+    
+                monitor.write(" " .. endur .. emptyString(length - string.len(endur)) .. " ")
+                sh = sh + 1
+                monitor.setCursorPos(sw, sh)
+    
+                monitor.write(" " .. produc .. emptyString(length - string.len(produc)) .. " ")
+                sh = sh + 1
+                monitor.setCursorPos(sw, sh)
+    
+                monitor.write(" " .. emptyString(length) .. " ")
+                sh = sh + 1
+                monitor.setCursorPos(sw, sh)
+    
+    
+                -- upgrades
+                local title = "Upgrades"
+                
+                psw = sw + length + 2
+                length = 10
+    
                 monitor.setCursorPos(psw, psh)
-
-                count = count + 1
-            end
-
-            local temp = numDisplayedUpgrades - count
-
-            for i=1,temp do
                 monitor.write(" " .. emptyString(length) .. " ")
                 psh = psh + 1
                 monitor.setCursorPos(psw, psh)
+    
+                local numDisplayedUpgrades = 4
+                local count = 0
+    
+                for k, v in pairs(pod:getUpgrades()) do
+                    if count >= numDisplayedUpgrades-1 then
+                        monitor.write(" " .. "..." .. emptyString(length - string.len("...")) .. " ")
+                        psh = psh + 1
+                        monitor.setCursorPos(psw, psh)
+                        count = count + 1
+                        break
+                    end
+    
+                    local msg = k .. " x" .. v
+    
+                    monitor.write(" " .. msg .. emptyString(length - string.len(msg)) .. " ")
+                    psh = psh + 1
+                    monitor.setCursorPos(psw, psh)
+    
+                    count = count + 1
+                end
+    
+                local temp = numDisplayedUpgrades - count
+    
+                for i=1,temp do
+                    monitor.write(" " .. emptyString(length) .. " ")
+                    psh = psh + 1
+                    monitor.setCursorPos(psw, psh)
+                end
+    
+                monitor.write(" " .. emptyString(length) .. " ")
+                psh = psh + 1
+                monitor.setCursorPos(psw, psh)
+    
+                sh = sh + 1
+                monitor.setCursorPos(sw, sh)
             end
-
-            monitor.write(" " .. emptyString(length) .. " ")
-            psh = psh + 1
-            monitor.setCursorPos(psw, psh)
-
-            sh = sh + 1
+    
+            sw = sw + 12 + 17 + 4 -- 12 (Bees+stats), 17 (upgrades), 4 (spacing)
+            sh = 2
+            print("resetting: " .. sw .. " " .. sh)
             monitor.setCursorPos(sw, sh)
         end
-
-        sw = sw + 12 + 17 + 4 -- 12 (Bees+stats), 17 (upgrades), 4 (spacing)
-        sh = 2
-        print("resetting: " .. sw .. " " .. sh)
-        monitor.setCursorPos(sw, sh)
     end
 
     monitor.setBackgroundColor(colors.lightGray)
@@ -184,13 +181,24 @@ function go(msg)
     monitor.write("Last updated " .. os.date("%D, %r, %Z", time))
 end
 
+function save(msg)
+    local outputFile = io.open('stored','w')
+    outputFile:write(textutils.serialize(output))
+    outputFile:close()
+end
+
 function init()
+    -- on startup, build a display from data on disk
+    -- displayFromFile()
+
     while true do
         local eventData = {os.pullEvent()}
 
         -- loop infinitely, checking for messages or monitor touch
         if eventData[1] == "rednet_message" then
-            go(eventData[3]) -- send msg contents to build display
+            local msg = eventData[3]
+            save(msg)
+            displayFromFile()
         elseif eventData[1] == "monitor_touch" then
             -- TODO: check position against displayClickMap to see what should be displayed next
             print("The monitor on side " .. eventData[2] .. " was touched at (" .. eventData[3] .. ", " .. eventData[4] .. ")")

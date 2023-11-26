@@ -8,6 +8,7 @@ require('pod')
 
 function colonyBuilder.build(stored)
     local colony = {}
+    local floors = {}
 
     for k1, v1 in pairs(stored) do -- loop over floors
         local rows = {}
@@ -50,8 +51,11 @@ function colonyBuilder.build(stored)
             table.insert(rows, pods)
         end
 
-        table.insert(colony, rows)
+        table.insert(floors, rows)
     end
+
+    table.insert(colony, floors)
+    
     return colony
 end
 
