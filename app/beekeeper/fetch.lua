@@ -105,7 +105,7 @@ function go()
             output["Floor"..f]["Row" .. r] = {}
             for p=1,PodsPerRow do
                 print("pod: " .. p)
-                output["Floor1"]["Row" .. r]["Pod" .. p] = {}
+                output["Floor"..f]["Row" .. r]["Pod" .. p] = {}
                 for i=1,HivesPerPod do
                     print("hive: " .. i)
                     output["Floor"..f]["Row" .. r]["Pod" .. p]["Hive" .. i] = fetchHiveData()
