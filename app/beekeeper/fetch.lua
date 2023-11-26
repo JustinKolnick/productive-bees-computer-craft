@@ -1,18 +1,33 @@
+-- START CONFIG
+-- Change these values as needed.
+
 local start = {
-    X = -77,
-    Y = 57,
-    Z = -384
+    X = -66,
+    Y = 64,
+    Z = -383
 }
 
--- testing a comment change
 local HivesPerPod = 5
 local PodsPerRow = 7
 local BlocksBetweenRows = 3
 local BlocksBetweenPods = 1
 local Rows = 4
 local Floors = 1
-
 local blockReaderDirection = "top"
+
+-- Modify this function as needed to get your turtle to travel 
+-- to the first block reader on the top floor.
+function travelToTopFloorStart()
+    for i=1, 11 do
+        turtle.forward()
+    end
+    turtle.down()
+    turtle.down()
+    turtle.turnRight()
+    turtle.forward()
+end
+
+---- END CONFIG
 
 local upgradeMap = {
     ["productivebees:upgrade_productivity"] = "Alpha",
@@ -23,7 +38,16 @@ local upgradeMap = {
     ["productivebees:upgrade_simulator"] = "Sim",
 }
 
-local output = {}
+function refuel()
+    print("fuel level at " .. turtle.getFuelLevel())
+
+    if (turtle.getFuelLevel() < 2000) then
+        print("Refueling...")
+        turtle.suckDown()
+        turtle.refuel()
+        turtle.dropUp()
+    end
+end
 
 function fetchHiveData()
     local r = peripheral.wrap(blockReaderDirection)
@@ -68,16 +92,7 @@ function fetchHiveData()
 end
 
 function go()
-    print("starting...")
-    print("fuel level at " .. turtle.getFuelLevel())
-
-    if (turtle.getFuelLevel() < 2000) then
-        print("Refueling...")
-        turtle.suckDown()
-        turtle.refuel()
-        turtle.dropUp()
-    end
-
+    local output = {}
     turtle.forward()
 
     for f=1, Floors do
@@ -140,13 +155,15 @@ function init()
     local x, y, z = gps.locate()
     if (start["X"] ~= x or start["Y"] ~= y or start["Z"] ~= z) then
         print("not at the start coords, exiting...")
-        -- TODO: broadcast it's position to the main computer
+        -- TODO: broadcast it's position to the main computer in case it's stuck
         return
     end
 
     while true do
         os.pullEvent("redstone")
-        if rs.getInput("right") then
+        if rs.getInput("left") then
+            refuel()
+            travelToTopFloorStart()
             go()
             local time = os.epoch("local") / 1000
             print(os.date("%D, %r, %Z", time))
