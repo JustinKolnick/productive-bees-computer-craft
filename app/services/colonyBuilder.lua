@@ -11,15 +11,19 @@ function colonyBuilder.build(stored)
     local floors = {}
 
     for k1, v1 in pairs(stored) do -- loop over floors
+        print(k1)
         local rows = {}
 
         for rk1, rv1 in pairs(v1) do -- loop over rows
+            print(rk1)
             local pods = {}
     
             for k2, v2 in pairs(rv1) do -- loop over pods
+                print(k2)
                 local hives = {}
         
                 for k3, v3 in pairs(v2) do -- loop over hives
+                    print(k3)
                     local bees = {}
                     if v3["Bees"] ~= nil then -- key Bees could not exist! TODO should change this to an empty table instead of a non-existant key
                         for k4, v4 in pairs(v3["Bees"]) do -- loop over bees
