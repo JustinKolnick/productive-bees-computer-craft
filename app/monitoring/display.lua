@@ -87,6 +87,10 @@ function displayFromFile()
 
             for k, pod in pairs(row) do -- loop over pods in row
                 print(k, textutils.serialize(pod))
+
+                local outputFile = io.open('test','w')
+                outputFile:write(textutils.serialize(pod))
+                outputFile:close()
                 local name = pod:getName()
                 monitor.setBackgroundColor(pod:getColor())
                 
