@@ -78,7 +78,7 @@ function displayLegend()
     monitor.setBackgroundColor(colors.white)
     monitor.setTextColor(colors.black)
     monitor.setCursorPos(136, 15)
-    monitor.write("Floors")
+    monitor.write("Floor")
 
     monitor.setBackgroundColor(colors.lightGray)
     monitor.setTextColor(colors.black)
@@ -91,11 +91,11 @@ function displayLegend()
 
     monitor.setBackgroundColor(colors.green)
     monitor.setCursorPos(136, 25)
-    monitor.write("     ")
+    monitor.write("  1  ")
 
     monitor.setBackgroundColor(colors.lightGray)
     monitor.setCursorPos(136, 28)
-    monitor.write("     ")
+    monitor.write("  2  ")
 
     monitor.setBackgroundColor(colors.lightGray)
     monitor.setTextColor(colors.black)
