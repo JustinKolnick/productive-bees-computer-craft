@@ -69,11 +69,20 @@ function emptyString(len)
 end
 
 function displayLegend()
-    monitor.setBackgroundColor(colors.lightGray)
+    monitor.setBackgroundColor(colors.white)
     monitor.setCursorPos(4, 51)
     monitor.setTextColor(colors.black)
     local time = os.epoch("local") / 1000
     monitor.write("Last updated " .. os.date("%D, %r, %Z", time))
+
+    monitor.setBackgroundColor(colors.lightGray)
+    monitor.setTextColor(colors.black)
+    monitor.setCursorPos(138, 20)
+    monitor.write("   ")
+    monitor.setCursorPos(138, 21)
+    monitor.write(" ^ ")
+    monitor.setCursorPos(138, 22)
+    monitor.write("   ")
 end
 
 function displayFloorFromFile(floor)
@@ -94,7 +103,7 @@ function displayFloorFromFile(floor)
     save(c, "parsedColony")
 
     local floor = c["Floor"..floor]
-    monitor.setBackgroundColor(colors.lightGray)
+    monitor.setBackgroundColor(colors.white)
     monitor.setTextColor(colors.white)
     monitor.clear()
     
