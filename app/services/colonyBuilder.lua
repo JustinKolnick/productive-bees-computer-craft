@@ -42,20 +42,20 @@ function colonyBuilder.build(stored)
                         upgrades = upgrades,
                     })
         
-                    table.insert(hives, h)
+                    hives[k3] = h
                 end
         
                 local p = Pod.new({
                     hives = hives,
                 })
     
-                table.insert(pods, p)
+                pods[k2] = p
             end
         
-            table.insert(rows, pods)
+            rows[rk1] = pods
         end
 
-        table.insert(floors, rows)
+        floors[k1] = rows
     end
 
     return floors
