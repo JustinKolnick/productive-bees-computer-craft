@@ -10,6 +10,7 @@ local PodsPerRow = 7
 local BlocksBetweenRows = 3
 local BlocksBetweenPods = 1
 local Rows = 4
+local Floors = 1
 
 local blockReaderDirection = "top"
 
@@ -79,48 +80,50 @@ function go()
 
     turtle.forward()
 
-    output["Floor1"] = {}
-    for r=1,Rows do
-        print("row: " .. r)
-        output["Floor1"]["Row" .. r] = {}
-        for p=1,PodsPerRow do
-            print("pod: " .. p)
-            output["Floor1"]["Row" .. r]["Pod" .. p] = {}
-            for i=1,HivesPerPod do
-                print("hive: " .. i)
-                output["Floor1"]["Row" .. r]["Pod" .. p]["Hive" .. i] = fetchHiveData()
-                turtle.forward()
+    for f=1, Floors do
+        output["Floor"..f] = {}
+        for r=1,Rows do
+            print("row: " .. r)
+            output["Floor"..f]["Row" .. r] = {}
+            for p=1,PodsPerRow do
+                print("pod: " .. p)
+                output["Floor1"]["Row" .. r]["Pod" .. p] = {}
+                for i=1,HivesPerPod do
+                    print("hive: " .. i)
+                    output["Floor1"]["Row" .. r]["Pod" .. p]["Hive" .. i] = fetchHiveData()
+                    turtle.forward()
+                end
+        
+                for i=1,BlocksBetweenPods do
+                    turtle.forward()
+                end
             end
-    
-            for i=1,BlocksBetweenPods do
+            if r == Rows then
+                turtle.turnLeft()
+                for i=1, 12 do
+                    turtle.forward()
+                end
+                turtle.turnLeft()
+                turtle.forward()
+            elseif r % 2 == 0 then
+                turtle.turnRight()
+                for i=1, BlocksBetweenRows+1 do
+                    turtle.forward()
+                end
+                turtle.turnRight()
+                turtle.forward()
+                turtle.forward()
+            else
+                turtle.turnLeft()
+                for i=1, BlocksBetweenRows+1 do
+                    turtle.forward()
+                end
+                turtle.turnLeft()
+                turtle.forward()
                 turtle.forward()
             end
         end
-        if r == Rows then
-            turtle.turnLeft()
-            for i=1, 12 do
-                turtle.forward()
-            end
-            turtle.turnLeft()
-            turtle.forward()
-        elseif r % 2 == 0 then
-            turtle.turnRight()
-            for i=1, BlocksBetweenRows+1 do
-                turtle.forward()
-            end
-            turtle.turnRight()
-            turtle.forward()
-            turtle.forward()
-        else
-            turtle.turnLeft()
-            for i=1, BlocksBetweenRows+1 do
-                turtle.forward()
-            end
-            turtle.turnLeft()
-            turtle.forward()
-            turtle.forward()
-        end
-    end 
+    end
 
     local outputFile = io.open('stored','w')
     outputFile:write(textutils.serialize(output))
@@ -147,7 +150,7 @@ function init()
             go()
             local time = os.epoch("local") / 1000
             print(os.date("%D, %r, %Z", time))
-            sleep(360)
+            sleep(1)
         end
     end
 end
