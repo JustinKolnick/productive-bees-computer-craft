@@ -286,6 +286,7 @@ local clickMap = {
 }
 
 function init()
+    local lastFloorDisplayed = 1
     -- on startup, build a display from data on disk
     displayFloorFromFile(1)
 
@@ -305,10 +306,12 @@ function init()
             for k, entry in pairs(clickMap) do
                 if entry.x1 <= x and entry.x2 >= x and entry.y1 <= y and entry.y2 >= y then
                     if entry.method == 'displayFloor1' then
+                        lastFloorDisplayed = 1
                         displayFloorFromFile(1)
                     end
 
                     if entry.method == 'displayFloor2' then
+                        lastFloorDisplayed = 2
                         displayFloorFromFile(2)
                     end
                 end
