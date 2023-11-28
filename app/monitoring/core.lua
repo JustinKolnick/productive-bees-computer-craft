@@ -3,7 +3,7 @@ local core = {}
 function core.write(text, bgColor, textColor, padding, x, y)
     if padding ~= nil then
         for i=1, padding do
-            text = " " + text + " "
+            text = " " .. text .. " "
         end
     end
 
@@ -16,7 +16,7 @@ end
 function core.whitespace(len, bgColor, x, y)
     local s = ""
     for i=1, len do
-        s = s + " "
+        s = s .. " "
     end
     monitor.setBackgroundColor(bgColor)
     monitor.setCursorPos(x, y)
