@@ -2,6 +2,7 @@ package.path = package.path .. ';../services/?.lua;'
 
 local colonyBuilder = require('colonyBuilder')
 local core = require('core')
+local file_manager = require('file_manager')
 
 local Rows = 4
 local Floors = 2
@@ -9,12 +10,6 @@ local Pods = 7
 
 local monitor = peripheral.find("monitor")
 local colony = nil
-
-function save(msg, filename)
-    local outputFile = io.open(filename,'w')
-    outputFile:write(textutils.serialize(msg))
-    outputFile:close()
-end
 
 function longestString(strs)
     local maxLen = 0
@@ -196,7 +191,7 @@ function getColony()
 
     colony = colonyBuilder.build(table)
 
-    save(colony, "parsedColony")
+    file_manager.save(colony, "parsedColony")
 
     return colony
 end
@@ -258,7 +253,7 @@ function init()
         -- loop infinitely, checking for messages or monitor touch
         if eventData[1] == "rednet_message" then
             local msg = eventData[3]
-            save(msg, "stored")
+            file_manager.save(msg, "stored")
             displayFloorFromFile(1)
         elseif eventData[1] == "monitor_touch" then
             -- TODO: check position against displayClickMap to see what should be displayed next
