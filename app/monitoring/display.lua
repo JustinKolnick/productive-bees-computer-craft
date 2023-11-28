@@ -231,21 +231,14 @@ function displayFloorFromFile(f)
         return
     end
 
-    local file = fs.open("stored", "r")
-    local table = textutils.unserialize(file.readAll())
-
-    monitor = peripheral.find("monitor")
-
     print("refreshing display...")
-    
-    local c = colonyBuilder.build(table)
 
-    save(c, "parsedColony")
+    local file = fs.open("parsedColony", "r")
+    local c = textutils.unserialize(file.readAll())
 
     displayPods(c["Floor"..f])
 
     displayLegend(f)
-
 end
 
 local clickMap = {
@@ -291,6 +284,15 @@ function init()
         if eventData[1] == "rednet_message" then
             local msg = eventData[3]
             save(msg, "stored")
+
+            local file = fs.open("stored", "r")
+            local table = textutils.unserialize(file.readAll())
+        
+            monitor = peripheral.find("monitor")
+        
+            local c = colonyBuilder.build(table)
+        
+            save(c, "parsedColony")
             displayFloorFromFile(1)
         elseif eventData[1] == "monitor_touch" then
             -- TODO: check position against displayClickMap to see what should be displayed next
