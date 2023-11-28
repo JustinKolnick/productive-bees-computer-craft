@@ -1,12 +1,13 @@
-package.path = package.path .. ';../services/?.lua;'
+package.path = package.path .. ';../services/?.lua;../?.lua;'
 
 local colonyBuilder = require('colonyBuilder')
 local core = require('core')
 local file_manager = require('file_manager')
+local config = require('config')
 
-local Rows = 4
-local Floors = 2
-local Pods = 7
+local Rows = config.Rows
+local Floors = config.Floors
+local Pods = config.PodsPerRow
 
 local monitor = peripheral.find("monitor")
 local colony = nil
