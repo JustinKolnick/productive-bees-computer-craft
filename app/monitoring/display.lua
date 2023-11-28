@@ -134,6 +134,8 @@ function displayFloorFromFile(f)
     for rk = Rows,1, -1 do -- loop over rows
         local row = floor["Row"..rk]
 
+        -- this code changes the direction of the loop so that the pods display
+        -- in the same order as they are positioned in the world
         local start = 1
         local fin = 1
         local dir = 1
