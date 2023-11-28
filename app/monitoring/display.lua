@@ -10,19 +10,6 @@ local Pods = 7
 local monitor = peripheral.find("monitor")
 local colony = nil
 
-local displayColorMap = {
-    ["Electrum Bees"] = colors.orange,
-    ["Emerald Bees"] = colors.green,
-    ["Diamond Bees"] = colors.cyan,
-    ["Inferium Bees"] = colors.green,
-    ["Lead Bees"] = colors.gray,
-    ["Nickel Bees"] = colors.gray,
-    ["Iron Bees"] = colors.gray,
-    ["Oily Bees"] = colors.black,
-    ["Tungsten Bees"] = colors.gray,
-    ["Zirconium Bees"] = colors.orange,
-}
-
 function save(msg, filename)
     local outputFile = io.open(filename,'w')
     outputFile:write(textutils.serialize(msg))
