@@ -1,6 +1,7 @@
 package.path = package.path .. ';../services/?.lua;'
 
 local colonyBuilder = require('colonyBuilder')
+local core = require('core')
 
 local Rows = 4
 local Floors = 2
@@ -75,10 +76,7 @@ function displayLegend(f)
     local time = os.epoch("local") / 1000
     monitor.write("Last updated " .. os.date("%D, %r, %Z", time))
 
-    monitor.setBackgroundColor(colors.white)
-    monitor.setTextColor(colors.black)
-    monitor.setCursorPos(136, 17)
-    monitor.write("Floor")
+    core.write("Floor", colors.white, colors.black, nil, 136, 17)
 
     monitor.setBackgroundColor(colors.lightGray)
     monitor.setTextColor(colors.black)
