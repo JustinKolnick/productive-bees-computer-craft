@@ -69,7 +69,7 @@ function emptyString(len)
     return s
 end
 
-function floorNav()
+function floorNav(f)
     core.write("Floor", colors.white, colors.black, nil, 136, 17)
 
     core.whitespace(5, colors.lightGray, 136, 20)
@@ -96,7 +96,7 @@ function displayLegend(f)
     local time = os.epoch("local") / 1000
     monitor.write("Last updated " .. os.date("%D, %r, %Z", time))
 
-    floorNav()
+    floorNav(f)
 end
 
 function displayFloorFromFile(f)
