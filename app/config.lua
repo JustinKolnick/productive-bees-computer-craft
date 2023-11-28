@@ -31,7 +31,7 @@ function config.travelToHome()
     for i=1, 12 do
         turtle.forward()
     end
-    local up = (Floors - 1) * 5 + 2 -- go back to same height as start
+    local up = (config.Floors - 1) * 5 + 2 -- go back to same height as start
     for i=1,up  do
         turtle.up()
     end
