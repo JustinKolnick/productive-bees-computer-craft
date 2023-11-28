@@ -1,50 +1,16 @@
--- START CONFIG
--- Change these values as needed.
+package.path = package.path .. ';../?.lua;'
 
-local start = {
-    X = -66,
-    Y = 64,
-    Z = -383
-}
+local config = require('config')
 
-local HivesPerPod = 5
-local PodsPerRow = 7
-local BlocksBetweenRows = 3
-local BlocksBetweenPods = 1
-local Rows = 4
-local Floors = 2
-local blockReaderDirection = "top"
+local start = config.start
 
--- Modify this function as needed to get your turtle to travel 
--- to the first block reader on the top floor.
-function travelToTopFloorStart()
-    for i=1, 11 do
-        turtle.forward()
-    end
-    turtle.down()
-    turtle.down()
-    turtle.turnRight()
-    turtle.forward()
-end
-
-function travelToHome()
-    turtle.turnLeft()
-    for i=1, 12 do
-        turtle.forward()
-    end
-    local up = (Floors - 1) * 5 + 2 -- go back to same height as start
-    for i=1,up  do
-        turtle.up()
-    end
-    for i=1, 11 do
-        turtle.forward()
-    end
-
-    turtle.turnLeft()
-    turtle.turnLeft()
-end
-
----- END CONFIG
+local HivesPerPod = config.HivesPerPod
+local PodsPerRow = config.PodsPerRow
+local BlocksBetweenRows = config.BlocksBetweenRows
+local BlocksBetweenPods = config.BlocksBetweenPods
+local Rows = config.Rows
+local Floors = config.Floors
+local blockReaderDirection = config.blockReaderDirection
 
 local upgradeMap = {
     ["productivebees:upgrade_productivity"] = "Alpha",
@@ -155,7 +121,7 @@ function go()
         end
 
         if f == Floors then
-            travelToHome()
+            config.travelToHome()
         else
             -- do next floor traversal
             turtle.turnLeft()
@@ -193,7 +159,7 @@ function init()
         os.pullEvent("redstone")
         if rs.getInput("left") then
             refuel()
-            travelToTopFloorStart()
+            config.travelToTopFloorStart()
             go()
             local time = os.epoch("local") / 1000
             print(os.date("%D, %r, %Z", time))
