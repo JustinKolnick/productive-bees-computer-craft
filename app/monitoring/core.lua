@@ -1,9 +1,12 @@
 local core = {}
 
 function core.write(text, bgColor, textColor, padding, x, y)
-    for i=1, padding do
-        text = " " + text + " "
+    if padding ~= nil then
+        for i=1, padding do
+            text = " " + text + " "
+        end
     end
+
     monitor.setBackgroundColor(bgColor)
     monitor.setTextColor(textColor)
     monitor.setCursorPos(x, y)
