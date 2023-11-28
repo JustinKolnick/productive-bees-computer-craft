@@ -69,6 +69,26 @@ function emptyString(len)
     return s
 end
 
+function floorNav()
+    core.write("Floor", colors.white, colors.black, nil, 136, 17)
+
+    core.whitespace(5, colors.lightGray, 136, 20)
+    core.write("^", colors.lightGray, colors.black, 2, 136, 21)
+    core.whitespace(5, colors.lightGray, 136, 22)
+
+    for i=1, Floors do
+        local color = colors.lightGray
+        if i == f then
+            color = colors.green
+        end
+        core.write(i, color, colors.black, 2, 136, 23 + (i*2))
+    end
+
+    core.whitespace(5, colors.lightGray, 136, 30)
+    core.write("v", colors.lightGray, colors.black, 2, 136, 31)
+    core.whitespace(5, colors.lightGray, 136, 32)
+end
+
 function displayLegend(f)
     monitor.setBackgroundColor(colors.white)
     monitor.setCursorPos(4, 51)
@@ -76,36 +96,7 @@ function displayLegend(f)
     local time = os.epoch("local") / 1000
     monitor.write("Last updated " .. os.date("%D, %r, %Z", time))
 
-    core.write("Floor", colors.white, colors.black, nil, 136, 17)
-
-    monitor.setBackgroundColor(colors.lightGray)
-    monitor.setTextColor(colors.black)
-    monitor.setCursorPos(136, 20)
-    monitor.write("     ")
-    monitor.setCursorPos(136, 21)
-    monitor.write("  ^  ")
-    monitor.setCursorPos(136, 22)
-    monitor.write("     ")
-
-    for i=1, Floors do
-        if i == f then
-            monitor.setBackgroundColor(colors.green)
-        else
-            monitor.setBackgroundColor(colors.lightGray)
-        end
-        monitor.setCursorPos(136, 23 + (i*2))
-        monitor.write("  "..i.."  ")
-    end
-
-    monitor.setBackgroundColor(colors.lightGray)
-    monitor.setTextColor(colors.black)
-    monitor.setCursorPos(136, 30)
-    monitor.write("     ")
-    monitor.setCursorPos(136, 31)
-    monitor.write("  v  ")
-    monitor.setCursorPos(136, 32)
-    monitor.write("     ")
-
+    floorNav()
 end
 
 function displayFloorFromFile(f)

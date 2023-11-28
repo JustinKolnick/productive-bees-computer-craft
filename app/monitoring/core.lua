@@ -1,7 +1,7 @@
 local core = {}
 
 function core.write(text, bgColor, textColor, padding, x, y)
-    if padding ~= nil then
+    for i=1, padding do
         text = " " + text + " "
     end
     monitor.setBackgroundColor(bgColor)
