@@ -7,6 +7,8 @@ local Rows = 4
 local Floors = 2
 local Pods = 7
 
+monitor = peripheral.find("monitor")
+
 local displayColorMap = {
     ["Electrum Bees"] = colors.orange,
     ["Emerald Bees"] = colors.green,
@@ -287,8 +289,6 @@ function init()
 
             local file = fs.open("stored", "r")
             local table = textutils.unserialize(file.readAll())
-        
-            monitor = peripheral.find("monitor")
         
             local c = colonyBuilder.build(table)
         
