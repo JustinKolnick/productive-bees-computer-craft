@@ -100,25 +100,7 @@ function displayLegend(f)
     floorNav(f)
 end
 
-function displayFloorFromFile(f)
-    if f < 1 or f > 2 then
-        printError("Floor is not in range!")
-        return
-    end
-
-    local file = fs.open("stored", "r")
-    local table = textutils.unserialize(file.readAll())
-
-    monitor = peripheral.find("monitor")
-
-    print("refreshing display...")
-    
-    local c = colonyBuilder.build(table)
-
-    save(c, "parsedColony")
-
-    local floor = c["Floor"..f]
-    print("Floor" .. f)
+function displayPods(floorData)
     monitor.setBackgroundColor(colors.white)
     monitor.setTextColor(colors.white)
     monitor.clear()
@@ -132,7 +114,7 @@ function displayFloorFromFile(f)
     print("height " .. h)
 
     for rk = Rows,1, -1 do -- loop over rows
-        local row = floor["Row"..rk]
+        local row = floorData["Row"..rk]
 
         -- this code changes the direction of the loop so that the pods display
         -- in the same order as they are positioned in the world
@@ -241,6 +223,26 @@ function displayFloorFromFile(f)
         sh = 2
         monitor.setCursorPos(sw, sh)
     end
+end
+
+function displayFloorFromFile(f)
+    if f < 1 or f > 2 then
+        printError("Floor is not in range!")
+        return
+    end
+
+    local file = fs.open("stored", "r")
+    local table = textutils.unserialize(file.readAll())
+
+    monitor = peripheral.find("monitor")
+
+    print("refreshing display...")
+    
+    local c = colonyBuilder.build(table)
+
+    save(c, "parsedColony")
+
+    displayPods(c["Floor"..f])
 
     displayLegend(f)
 
