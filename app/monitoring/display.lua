@@ -89,13 +89,14 @@ function floorNav(f)
     core.whitespace(5, colors.lightGray, 136, 32)
 end
 
-function displayLegend(f)
-    monitor.setBackgroundColor(colors.white)
-    monitor.setCursorPos(4, 51)
-    monitor.setTextColor(colors.black)
+function timestamp()
     local time = os.epoch("local") / 1000
-    monitor.write("Last updated " .. os.date("%D, %r, %Z", time))
+    local timestr = "Last updated " .. os.date("%D, %r, %Z", time)
+    core.write(timestr, colors.white, colors.black, 0, 4, 51)
+end
 
+function displayLegend(f)
+    timestamp()
     floorNav(f)
 end
 
