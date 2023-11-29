@@ -6,4 +6,9 @@ function file_manager.save(msg, filename)
     outputFile:close()
 end
 
+function file_manager.get(filename)
+    local file = fs.open(filename, "r")
+    return textutils.unserialize(file.readAll())
+end
+
 return file_manager

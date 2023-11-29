@@ -30,9 +30,8 @@ function floorNav(f)
 end
 
 function timestamp()
-    local time = os.epoch("local") / 1000
-    local timestr = "Last updated " .. os.date("%D, %r, %Z", time)
-    core.write(timestr, colors.white, colors.black, 0, 4, 51)
+    local time = file_manager.get("last_updated")
+    core.write("Last updated " .. time, colors.white, colors.black, 0, 4, 51)
 end
 
 function displayLegend(f)

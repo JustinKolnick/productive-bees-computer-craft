@@ -2,6 +2,7 @@ local colony_display = require('colony_display')
 local file_manager = require('file_manager')
 
 local current_display = 'colony'
+local clickMap = {} -- implement parent click map todo
 
 function init()
     local lastFloorDisplayed = 1
@@ -16,6 +17,9 @@ function init()
             -- when we receive new data, update the underlying data store
             local msg = eventData[3]
             file_manager.save(msg, "stored")
+
+            local timeString = os.date("%D, %r, %Z", os.epoch("local") / 1000)
+            file_manager.save(timeString, "last_updated")
         elseif eventData[1] == "monitor_touch" then
             -- TODO: check position against displayClickMap to see what should be displayed next
             print("The monitor on side " .. eventData[2] .. " was touched at (" .. eventData[3] .. ", " .. eventData[4] .. ")")
