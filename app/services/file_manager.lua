@@ -8,6 +8,9 @@ end
 
 function file_manager.get(filename)
     local file = fs.open(filename, "r")
+    if file == nil then
+        return ""
+    end
     return textutils.unserialize(file.readAll())
 end
 
