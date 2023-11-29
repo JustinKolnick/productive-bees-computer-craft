@@ -4,12 +4,7 @@ local colony_display = {}
 
 local colony_builder = require('colony_builder')
 local core = require('core')
-local file_manager = require('file_manager')
 local config = require('config')
-
-local Rows = config.Rows
-local Floors = config.Floors
-local Pods = config.PodsPerRow
 
 local monitor = peripheral.find("monitor")
 local colony = nil
@@ -39,7 +34,7 @@ function floorNav(f)
     core.write("^", colors.lightGray, colors.black, 2, 136, 21)
     core.whitespace(5, colors.lightGray, 136, 22)
 
-    for i=1, Floors do
+    for i=1, config.Floors do
         local color = colors.lightGray
         if i == f then
             color = colors.green
@@ -76,7 +71,7 @@ function displayFloor(floorData)
     print("width " .. w)
     print("height " .. h)
 
-    for rk = Rows,1, -1 do -- loop over rows
+    for rk = config.Rows,1, -1 do -- loop over rows
         local row = floorData["Row"..rk]
 
         -- this code changes the direction of the loop so that the pods display
@@ -87,10 +82,10 @@ function displayFloor(floorData)
 
         if rk % 2 == 0 then
             start = 1
-            fin = Pods
+            fin = config.PodsPerRow
             dir = 1
         else
-            start = Pods
+            start = config.PodsPerRow
             fin = 1
             dir = -1
         end
