@@ -178,36 +178,37 @@ function colony_display.show(f)
     displayLegend(f)
 end
 
-local clickMap = {
-    {
-        x1 = 136,
-        x2 = 141,
-        y1 = 30,
-        y2 = 32,
-        method = "displayFloor2"
-    },
-    {
-        x1 = 136,
-        x2 = 141,
-        y1 = 20,
-        y2 = 22,
-        method = "displayFloor1"
-    },
-    {
-        x1 = 136,
-        x2 = 141,
-        y1 = 25,
-        y2 = 25,
-        method = "displayFloor1"
-    },
-    {
-        x1 = 136,
-        x2 = 141,
-        y1 = 27,
-        y2 = 27,
-        method = "displayFloor2"
-    },
-}
-
+function colony_display.getClickMap()
+    return {
+        {
+            x1 = 136,
+            x2 = 141,
+            y1 = 30,
+            y2 = 32,
+            method = "displayFloor2"
+        },
+        {
+            x1 = 136,
+            x2 = 141,
+            y1 = 20,
+            y2 = 22,
+            method = "displayFloor1"
+        },
+        {
+            x1 = 136,
+            x2 = 141,
+            y1 = 25,
+            y2 = 25,
+            method = "displayFloor1"
+        },
+        {
+            x1 = 136,
+            x2 = 141,
+            y1 = 27,
+            y2 = 27,
+            method = "displayFloor2"
+        },
+    }
+end
 
 return colony_display
