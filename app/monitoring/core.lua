@@ -25,4 +25,10 @@ function core.whitespace(len, bgColor, x, y)
     monitor.write(s)
 end
 
+function core.emptyString(len)
+    local s = ""
+    for i=1, len do s = s .. " " end
+    return s
+end
+
 return core

@@ -9,24 +9,6 @@ local config = require('config')
 local monitor = peripheral.find("monitor")
 local colony = nil
 
-function longestString(strs)
-    local maxLen = 0
-    local longestStr = ""
-    for k, v in ipairs(strs) do
-        if string.len(v) > maxLen then
-            maxLen = string.len(v)
-            longestStr = v
-        end
-    end
-    return longestStr, maxLen
-end
-
-function emptyString(len)
-    local s = ""
-    for i=1, len do s = s .. " " end
-    return s
-end
-
 function floorNav(f)
     core.write("Floor", colors.white, colors.black, nil, 136, 17)
 
@@ -104,27 +86,27 @@ function displayFloor(floorData)
             local psw = sw
             local psh = sh
             -- bees
-            monitor.write(" " .. emptyString(length) .. " ")
+            monitor.write(" " .. core.emptyString(length) .. " ")
             sh = sh + 1
             monitor.setCursorPos(sw, sh)
 
-            monitor.write(" " .. name .. emptyString(length - string.len(name)) .. " ")
+            monitor.write(" " .. name .. core.emptyString(length - string.len(name)) .. " ")
             sh = sh + 1
             monitor.setCursorPos(sw, sh)
 
-            monitor.write(" " .. health .. emptyString(length - string.len(health)) .. " ")
+            monitor.write(" " .. health .. core.emptyString(length - string.len(health)) .. " ")
             sh = sh + 1
             monitor.setCursorPos(sw, sh)
 
-            monitor.write(" " .. endur .. emptyString(length - string.len(endur)) .. " ")
+            monitor.write(" " .. endur .. core.emptyString(length - string.len(endur)) .. " ")
             sh = sh + 1
             monitor.setCursorPos(sw, sh)
 
-            monitor.write(" " .. produc .. emptyString(length - string.len(produc)) .. " ")
+            monitor.write(" " .. produc .. core.emptyString(length - string.len(produc)) .. " ")
             sh = sh + 1
             monitor.setCursorPos(sw, sh)
 
-            monitor.write(" " .. emptyString(length) .. " ")
+            monitor.write(" " .. core.emptyString(length) .. " ")
             sh = sh + 1
             monitor.setCursorPos(sw, sh)
 
@@ -136,7 +118,7 @@ function displayFloor(floorData)
             length = 10
 
             monitor.setCursorPos(psw, psh)
-            monitor.write(" " .. emptyString(length) .. " ")
+            monitor.write(" " .. core.emptyString(length) .. " ")
             psh = psh + 1
             monitor.setCursorPos(psw, psh)
 
@@ -145,7 +127,7 @@ function displayFloor(floorData)
 
             for k, v in pairs(pod:getUpgrades()) do
                 if count >= numDisplayedUpgrades-1 then
-                    monitor.write(" " .. "..." .. emptyString(length - string.len("...")) .. " ")
+                    monitor.write(" " .. "..." .. core.emptyString(length - string.len("...")) .. " ")
                     psh = psh + 1
                     monitor.setCursorPos(psw, psh)
                     count = count + 1
@@ -154,7 +136,7 @@ function displayFloor(floorData)
 
                 local msg = k .. " x" .. v
 
-                monitor.write(" " .. msg .. emptyString(length - string.len(msg)) .. " ")
+                monitor.write(" " .. msg .. core.emptyString(length - string.len(msg)) .. " ")
                 psh = psh + 1
                 monitor.setCursorPos(psw, psh)
 
@@ -164,12 +146,12 @@ function displayFloor(floorData)
             local temp = numDisplayedUpgrades - count
 
             for i=1,temp do
-                monitor.write(" " .. emptyString(length) .. " ")
+                monitor.write(" " .. core.emptyString(length) .. " ")
                 psh = psh + 1
                 monitor.setCursorPos(psw, psh)
             end
 
-            monitor.write(" " .. emptyString(length) .. " ")
+            monitor.write(" " .. core.emptyString(length) .. " ")
             psh = psh + 1
             monitor.setCursorPos(psw, psh)
 
