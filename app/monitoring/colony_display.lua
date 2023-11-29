@@ -2,7 +2,7 @@ package.path = package.path .. ';../services/?.lua;../?.lua;'
 
 local colony_display = {}
 
-local colonyBuilder = require('colonyBuilder')
+local colony_builder = require('colony_builder')
 local core = require('core')
 local file_manager = require('file_manager')
 local config = require('config')
@@ -196,7 +196,7 @@ function colony_display.show(f)
 
     print("refreshing display...")
 
-    local colony = colonyBuilder.get()
+    local colony = colony_builder.get()
 
     displayFloor(colony["Floor"..f])
     displayLegend(f)

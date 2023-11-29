@@ -1,4 +1,4 @@
-local colonyBuilder = {}
+local colony_builder = {}
 
 package.path = package.path .. ';../models/?.lua;'
 
@@ -6,7 +6,7 @@ require('bee')
 require('hive')
 require('pod')
 
-function colonyBuilder.build()
+function colony_builder.get()
     local file = fs.open("stored", "r")
     local stored = textutils.unserialize(file.readAll())
 
@@ -60,4 +60,4 @@ function colonyBuilder.build()
     return floors
 end
 
-return colonyBuilder
+return colony_builder
