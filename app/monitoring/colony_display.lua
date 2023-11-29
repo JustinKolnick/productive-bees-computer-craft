@@ -188,17 +188,6 @@ function displayFloor(floorData)
     end
 end
 
-function getColony()
-    local file = fs.open("stored", "r")
-    local table = textutils.unserialize(file.readAll())
-
-    colony = colonyBuilder.build(table)
-
-    file_manager.save(colony, "parsedColony")
-
-    return colony
-end
-
 function colony_display.show(f)
     if f < 1 or f > config.Floors then
         printError("Floor is not in range!")
@@ -207,10 +196,9 @@ function colony_display.show(f)
 
     print("refreshing display...")
 
-    local colony = getColony()
+    local colony = colonyBuilder.get()
 
     displayFloor(colony["Floor"..f])
-
     displayLegend(f)
 end
 

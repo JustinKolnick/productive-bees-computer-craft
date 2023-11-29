@@ -6,7 +6,10 @@ require('bee')
 require('hive')
 require('pod')
 
-function colonyBuilder.build(stored)
+function colonyBuilder.build()
+    local file = fs.open("stored", "r")
+    local stored = textutils.unserialize(file.readAll())
+
     local colony = {}
     local floors = {}
 
