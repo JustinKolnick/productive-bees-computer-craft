@@ -13,6 +13,7 @@ function init()
     -- on startup, build a display from data on disk
     colony_display.show(1)
     current_display = 'floor1'
+    peripheral.find("modem", rednet.open)
 
     while true do
         local eventData = {os.pullEvent()}
